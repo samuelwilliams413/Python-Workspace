@@ -1,0 +1,16 @@
+python -m pip install --upgrade pip
+
+mkdir ABC
+cd ABC
+python -m venv venv
+venv\Scipts\activate
+
+
+pip install flask
+import flask
+
+
+
+export FLASK_APP=flask_1.py #export doesn't work for windows
+set FLASK_APP=flask_1.py
+flask run
