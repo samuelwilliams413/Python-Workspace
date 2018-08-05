@@ -20,3 +20,9 @@ flask run
 
 
 pip install flask-wtf
+
+
+cd C:\GitHub\Python-Workspace\myChan
+python -m venv venv
+set FLASK_APP=myChan.py
+flask run
