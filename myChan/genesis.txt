@@ -9,7 +9,11 @@ python -m venv venv
 venv\Scipts\activate
 
 
+python -m pip install --upgrade pip
 pip install flask
+pip install flask-wtf
+pip install flask-sqlalchemy
+pip install flask-migrate
 import flask
 
 
@@ -26,3 +30,16 @@ cd C:\GitHub\Python-Workspace\myChan
 python -m venv venv
 set FLASK_APP=myChan.py
 flask run
+
+cd D:\GitHub\Python-Workspace\myChan
+D:
+python -m venv venv
+set FLASK_APP=myChan.py
+flask db init
+
+flask run
+
+
+flask db migrate -m "users table"
+flask db migrate -m "posts table"
+flask db upgrade
