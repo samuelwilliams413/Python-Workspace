@@ -6,7 +6,7 @@ python -m pip install --upgrade pip
 mkdir ABC
 cd ABC
 python -m venv venv
-venv\Scipts\activate
+\venv\Scipts\activate
 
 
 python -m pip install --upgrade pip
@@ -14,6 +14,7 @@ pip install flask
 pip install flask-wtf
 pip install flask-sqlalchemy
 pip install flask-migrate
+pip install flask-login
 import flask
 
 
@@ -43,3 +44,16 @@ flask run
 flask db migrate -m "users table"
 flask db migrate -m "posts table"
 flask db upgrade
+
+
+
+#clean database
+users = User.query.all()
+for u in users:
+    db.session.delete(u)
+posts = Post.query.all()
+for p in posts:
+    db.session.delete(p)
+db.session.commit()
+
+flask shell
