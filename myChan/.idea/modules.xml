@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../COSC3500/DataProcessing/.idea/DataProcessing.iml" filepath="$PROJECT_DIR$/../../COSC3500/DataProcessing/.idea/DataProcessing.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../COSC3500/TOHpy/.idea/TOHpy.iml" filepath="$PROJECT_DIR$/../../COSC3500/TOHpy/.idea/TOHpy.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/myChan.iml" filepath="$PROJECT_DIR$/.idea/myChan.iml" />
     </modules>
