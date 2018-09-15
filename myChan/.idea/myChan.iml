@@ -6,6 +6,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="TOHpy" />
     <orderEntry type="module" module-name="DataProcessing" />
+    <orderEntry type="module" module-name="Tarot" />
+    <orderEntry type="module" module-name="ComToHID" />
   </component>
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="Unittests" />

@@ -52,54 +52,77 @@
     <session id="-1325151402">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.21" value="1" />
+          <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="4" />
-          <entry key="py" value="16" />
-          <entry key="txt" value="2" />
+          <entry key="py" value="24" />
+          <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="4" />
-          <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="16" />
+          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="Python" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="17" />
           <entry key="html" value="140" />
-          <entry key="py" value="2750" />
-          <entry key="txt" value="58" />
+          <entry key="py" value="5213" />
+          <entry key="txt" value="77" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="140" />
-          <entry key="PLAIN_TEXT" value="58" />
-          <entry key="Python" value="2767" />
+          <entry key="PLAIN_TEXT" value="77" />
+          <entry key="Python" value="5230" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../../COSC3500/DataProcessing/dpro.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../SMW---Projects/P00I - Tarot Reader/03 - Preliminary Design/Tarot/tarot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-666">
-              <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+            <state relative-caret-position="72">
+              <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="26" />
               <folding>
-                <marker date="1534315765523" expanded="true" signature="108:631" ph="..." />
+                <element signature="e#0#34#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../deco3801-tba/03 - Built Design/Firmware/Python Workspace/ComToHID/ComToHID.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../deco3801-tba/03 - Built Design/Firmware/Python Workspace/ComToHID/workingNotes.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -113,6 +136,18 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>from collections import namedtuple\n\nCard \= namedtuple\(\'Card\'\, \[\'value\'\, \'suit\'\]\)\nsuits \= \[\'swords\'\, \'wands\'\, \'coins\'\, \'cups\'\]\ncards \= \[\]\n\n\n\nfor value in range\(1\, 15\)\:\n    for suit in suits\:\n        v \= str\(value\)\n        if\(v \=\= \'1\'\)\:\n            v \= \'Ace\'\n        if\(v \=\= \'11\'\)\:\n            v \= \'Page\'\n        if\(v \=\= \'12\'\)\:\n            v \= \'Knight\'\n        if\(v \=\= \'13\'\)\:\n            v \= \'Queen\'\n        if\(v \=\= \'14\'\)\:\n            v \= \'King\'\n        cards\.append\(Card\(v\, suit\)\)\n\nmajor \= \[\'The Magician\'\, \'The High Priestess\'\, \'The Empress\'\, \'The Emperor\'\, \'The Hierophant\'\, \'The Lovers\'\, \'The Chariot\'\, \'Strength\'\, \'The Hermit\'\, \'Wheel of Fortune\'\, \'Justice\'\, \'The Hanged Man\'\, \'Death\'\, \'Temperance\'\, \'The Devil\'\, \'The Tower\'\, \'The Star\'\, \'The Moon\'\, \'The Sun\'\, \'Judgement\'\, \'The World\'\, \'The Fool\'\]\n\nfor c in cards\:\n    if \(c\.suit in suits\)\:\n        print\(c\.value\, \'of\'\, c\.suit\)\n    else\:\n        print\(c\.value\, \'the \'\, c\.suit\)</find>
+      <find>ifdebugMode</find>
+      <find>debugMode : print</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>id_value</replace>
+      <replace>if debugMode</replace>
+      <replace>debugMode: print</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -134,14 +169,17 @@
         <option value="$PROJECT_DIR$/../../COSC3500/TOHpy/pour.py" />
         <option value="$PROJECT_DIR$/../../COSC3500/TOHpy/pour_test.py" />
         <option value="$PROJECT_DIR$/../../COSC3500/DataProcessing/dpro.py" />
+        <option value="$PROJECT_DIR$/../../SMW---Projects/P00I - Tarot Reader/03 - Preliminary Design/Tarot/tarot.py" />
+        <option value="$PROJECT_DIR$/../../deco3801-tba/03 - Built Design/Firmware/Python Workspace/ComToHID/workingNotes.txt" />
+        <option value="$PROJECT_DIR$/../../deco3801-tba/03 - Built Design/Firmware/Python Workspace/ComToHID/ComToHID.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="15" />
-    <option name="y" value="15" />
-    <option name="width" value="1406" />
-    <option name="height" value="835" />
+    <option name="x" value="14" />
+    <option name="y" value="14" />
+    <option name="width" value="1409" />
+    <option name="height" value="839" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -160,27 +198,7 @@
             </path>
             <path>
               <item name="myChan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myChan" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myChan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myChan" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myChan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myChan" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myChan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DataProcessing" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myChan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TOHpy" type="462c0819:PsiDirectoryNode" />
+              <item name="ComToHID" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -206,7 +224,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.dpro">
+  <component name="RunManager" selected="Python.ComToHID">
+    <configuration name="ComToHID" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ComToHID" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../deco3801-tba/03 - Built Design/Firmware/Python Workspace/ComToHID" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../deco3801-tba/03 - Built Design/Firmware/Python Workspace/ComToHID/ComToHID.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="dpro" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="DataProcessing" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -220,6 +259,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../COSC3500/DataProcessing/dpro.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tarot" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Tarot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../SMW---Projects/P00I - Tarot Reader/03 - Preliminary Design/Tarot" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../SMW---Projects/P00I - Tarot Reader/03 - Preliminary Design/Tarot/tarot.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -245,9 +305,13 @@
     <list>
       <item itemvalue="Python tests.Unittests in pour_test.py" />
       <item itemvalue="Python.dpro" />
+      <item itemvalue="Python.tarot" />
+      <item itemvalue="Python.ComToHID" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.ComToHID" />
+        <item itemvalue="Python.tarot" />
         <item itemvalue="Python.dpro" />
         <item itemvalue="Python tests.Unittests in pour_test.py" />
       </list>
@@ -302,19 +366,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1842" height="982" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1842" height="1013" extended-state="6" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.23975636" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.23975636" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.3291714" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="2" weight="0.32941177" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" />
       <window_info anchor="bottom" id="Version Control" order="5" weight="0.32941177" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.32941177" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.3291714" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -328,31 +391,10 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/pip/commands/show.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="649">
           <caret line="112" column="60" lean-forward="true" selection-start-line="112" selection-start-column="60" selection-end-line="112" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/genesis.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" selection-start-line="16" selection-end-line="16" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myChan.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="33" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -412,6 +454,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../COSC3500/DataProcessing/Hello.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myChan.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="1" column="33" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../COSC3500/DataProcessing/dpro.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../COSC3500/TOHpy/pour.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -421,24 +491,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../COSC3500/TOHpy/pour_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="15" selection-start-column="15" selection-end-column="15" />
+        <state relative-caret-position="126">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../COSC3500/DataProcessing/Hello.txt">
+    <entry file="file://$PROJECT_DIR$/genesis.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
+        <state relative-caret-position="8">
+          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../COSC3500/DataProcessing/dpro.py">
+    <entry file="file://$PROJECT_DIR$/../../deco3801-tba/03 - Built Design/Firmware/Python Workspace/ComToHID/workingNotes.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-666">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../SMW---Projects/P00I - Tarot Reader/03 - Preliminary Design/Tarot/tarot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="26" />
           <folding>
-            <marker date="1534315765523" expanded="true" signature="108:631" ph="..." />
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../deco3801-tba/03 - Built Design/Firmware/Python Workspace/ComToHID/ComToHID.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
