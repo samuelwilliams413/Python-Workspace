@@ -52,14 +52,15 @@
     <session id="-1325151402">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.14" value="2" />
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.14" value="4" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -80,18 +81,21 @@
         <counts>
           <entry key="Python Console" value="17" />
           <entry key="html" value="140" />
-          <entry key="py" value="5224" />
-          <entry key="txt" value="77" />
+          <entry key="py" value="5707" />
+          <entry key="txt" value="200" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="140" />
-          <entry key="PLAIN_TEXT" value="77" />
-          <entry key="Python" value="5241" />
+          <entry key="PLAIN_TEXT" value="200" />
+          <entry key="Python" value="5724" />
         </counts>
       </usages-collector>
     </session>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="myChan" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -110,8 +114,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../../deco3801-tba/03 - Built Design/Firmware/Python Workspace/ComToHID/ComToHID.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="63" column="60" selection-start-line="63" selection-start-column="60" selection-end-line="63" selection-end-column="60" />
+            <state relative-caret-position="342">
+              <caret line="133" column="22" selection-start-line="133" selection-start-column="22" selection-end-line="133" selection-end-column="22" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -122,8 +126,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../deco3801-tba/03 - Built Design/Firmware/Python Workspace/ComToHID/workingNotes.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="144">
+              <caret line="8" column="52" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -143,11 +147,13 @@
       <find>from collections import namedtuple\n\nCard \= namedtuple\(\'Card\'\, \[\'value\'\, \'suit\'\]\)\nsuits \= \[\'swords\'\, \'wands\'\, \'coins\'\, \'cups\'\]\ncards \= \[\]\n\n\n\nfor value in range\(1\, 15\)\:\n    for suit in suits\:\n        v \= str\(value\)\n        if\(v \=\= \'1\'\)\:\n            v \= \'Ace\'\n        if\(v \=\= \'11\'\)\:\n            v \= \'Page\'\n        if\(v \=\= \'12\'\)\:\n            v \= \'Knight\'\n        if\(v \=\= \'13\'\)\:\n            v \= \'Queen\'\n        if\(v \=\= \'14\'\)\:\n            v \= \'King\'\n        cards\.append\(Card\(v\, suit\)\)\n\nmajor \= \[\'The Magician\'\, \'The High Priestess\'\, \'The Empress\'\, \'The Emperor\'\, \'The Hierophant\'\, \'The Lovers\'\, \'The Chariot\'\, \'Strength\'\, \'The Hermit\'\, \'Wheel of Fortune\'\, \'Justice\'\, \'The Hanged Man\'\, \'Death\'\, \'Temperance\'\, \'The Devil\'\, \'The Tower\'\, \'The Star\'\, \'The Moon\'\, \'The Sun\'\, \'Judgement\'\, \'The World\'\, \'The Fool\'\]\n\nfor c in cards\:\n    if \(c\.suit in suits\)\:\n        print\(c\.value\, \'of\'\, c\.suit\)\n    else\:\n        print\(c\.value\, \'the \'\, c\.suit\)</find>
       <find>ifdebugMode</find>
       <find>debugMode : print</find>
+      <find>py</find>
     </findStrings>
     <replaceStrings>
       <replace>id_value</replace>
       <replace>if debugMode</replace>
       <replace>debugMode: print</replace>
+      <replace>python</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -179,8 +185,8 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="14" />
     <option name="y" value="14" />
-    <option name="width" value="1413" />
-    <option name="height" value="842" />
+    <option name="width" value="1418" />
+    <option name="height" value="847" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -369,15 +375,15 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1842" height="1013" extended-state="6" />
     <layout>
-      <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.23975636" />
+      <window_info id="Favorites" order="0" sideWeight="0.500846" side_tool="true" weight="0.23975636" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49915397" visible="true" weight="0.23975636" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.3291714" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="2" weight="0.32941177" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" />
-      <window_info anchor="bottom" id="Version Control" order="5" weight="0.32941177" />
+      <window_info anchor="bottom" id="Version Control" order="5" visible="true" weight="0.3291714" />
       <window_info anchor="bottom" id="Run" order="6" weight="0.3291714" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
@@ -516,15 +522,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../deco3801-tba/03 - Built Design/Firmware/Python Workspace/ComToHID/workingNotes.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="144">
+          <caret line="8" column="52" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../deco3801-tba/03 - Built Design/Firmware/Python Workspace/ComToHID/ComToHID.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="63" column="60" selection-start-line="63" selection-start-column="60" selection-end-line="63" selection-end-column="60" />
+        <state relative-caret-position="342">
+          <caret line="133" column="22" selection-start-line="133" selection-start-column="22" selection-end-line="133" selection-end-column="22" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
