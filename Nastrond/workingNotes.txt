@@ -1,0 +1,7 @@
+D:
+cd "D:\Github\Python-Workspace\Nastrond"
+python engine.py
+
+
+python -m pip install --upgrade pip
+http://rogueliketutorials.com/libtcod/1
