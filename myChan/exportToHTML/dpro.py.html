@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>dpro.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #808080;}
+.s4 { color: #6897bb;}
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+dpro.py</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0">import </span><span class="s1">os</span>
+
+<span class="s0">class </span><span class="s1">dpro():</span>
+    path = <span class="s2">&quot;../Data_from_Goliath&quot;</span>
+    <span class="s1">directory = os.listdir(path)  </span><span class="s3"># returns list</span>
+
+    <span class="s1">fh = open(</span><span class="s2">&quot;data.csv&quot;</span><span class="s0">, </span><span class="s2">&quot;w&quot;</span><span class="s1">)</span>
+    <span class="s0">for </span><span class="s1">filename </span><span class="s0">in </span><span class="s1">directory:</span>
+        <span class="s0">try</span><span class="s1">:</span>
+            file = path + <span class="s2">&quot;/&quot; </span><span class="s1">+ filename</span>
+            f = open(file)
+            count = -<span class="s4">1</span>
+            <span class="s1">process = </span><span class="s0">False</span>
+            <span class="s1">real = </span><span class="s4">0</span>
+            <span class="s1">user = </span><span class="s4">0</span>
+            <span class="s1">sys = </span><span class="s4">0</span>
+            <span class="s0">for </span><span class="s1">line </span><span class="s0">in </span><span class="s1">f:</span>
+                count = count + <span class="s4">1</span><span class="s1">;</span>
+
+                <span class="s0">if</span><span class="s1">(count == </span><span class="s4">2</span><span class="s1">):</span>
+                    process = <span class="s0">True</span>
+                    <span class="s1">words = line.split();</span>
+                    <span class="s0">if</span><span class="s1">(words.__len__() == </span><span class="s4">3</span><span class="s1">):</span>
+                        <span class="s0">if</span><span class="s1">(words[</span><span class="s4">0</span><span class="s1">] == </span><span class="s2">&quot;[N,D]&quot;</span><span class="s1">):</span>
+                            ND = words[<span class="s4">2</span><span class="s1">]</span>
+                            ND = ND.replace(<span class="s2">&quot;[&quot;</span><span class="s0">, </span><span class="s2">&quot;&quot;</span><span class="s1">)</span>
+                            ND = ND.replace(<span class="s2">&quot;]&quot;</span><span class="s0">, </span><span class="s2">&quot;&quot;</span><span class="s1">)</span>
+                            ND = ND.split(<span class="s2">&quot;,&quot;</span><span class="s1">)</span>
+                            N = ND[<span class="s4">0</span><span class="s1">]</span>
+                            D = ND[<span class="s4">1</span><span class="s1">]</span>
+
+                <span class="s0">if</span><span class="s1">(process </span><span class="s0">and </span><span class="s1">count == </span><span class="s4">6</span><span class="s1">):</span>
+                    words = line.split();
+                    temp = words[<span class="s4">1</span><span class="s1">]</span>
+                    temp = temp.replace(<span class="s2">&quot;s&quot;</span><span class="s0">, </span><span class="s2">&quot;&quot;</span><span class="s1">)</span>
+                    temp = temp.split(<span class="s2">&quot;m&quot;</span><span class="s1">)</span>
+                    real = <span class="s4">60</span><span class="s1">*int(temp[</span><span class="s4">0</span><span class="s1">])</span>
+                    temp = temp[<span class="s4">1</span><span class="s1">]</span>
+                    temp = temp.split(<span class="s2">&quot;.&quot;</span><span class="s1">)</span>
+                    real = real + int(temp[<span class="s4">0</span><span class="s1">]) + (int(temp[</span><span class="s4">1</span><span class="s1">])/</span><span class="s4">1000</span><span class="s1">)</span>
+
+                <span class="s0">if</span><span class="s1">(process </span><span class="s0">and </span><span class="s1">count == </span><span class="s4">7</span><span class="s1">):</span>
+                    words = line.split();
+                    temp = words[<span class="s4">1</span><span class="s1">]</span>
+                    temp = temp.replace(<span class="s2">&quot;s&quot;</span><span class="s0">, </span><span class="s2">&quot;&quot;</span><span class="s1">)</span>
+                    temp = temp.split(<span class="s2">&quot;m&quot;</span><span class="s1">)</span>
+                    user = <span class="s4">60</span><span class="s1">*int(temp[</span><span class="s4">0</span><span class="s1">])</span>
+                    temp = temp[<span class="s4">1</span><span class="s1">]</span>
+                    temp = temp.split(<span class="s2">&quot;.&quot;</span><span class="s1">)</span>
+                    user = user + int(temp[<span class="s4">0</span><span class="s1">]) + (int(temp[</span><span class="s4">1</span><span class="s1">])/</span><span class="s4">1000</span><span class="s1">)</span>
+
+                <span class="s0">if</span><span class="s1">(process </span><span class="s0">and </span><span class="s1">count == </span><span class="s4">8</span><span class="s1">):</span>
+                    words = line.split();
+                    temp = words[<span class="s4">1</span><span class="s1">]</span>
+                    temp = temp.replace(<span class="s2">&quot;s&quot;</span><span class="s0">, </span><span class="s2">&quot;&quot;</span><span class="s1">)</span>
+                    temp = temp.split(<span class="s2">&quot;m&quot;</span><span class="s1">)</span>
+                    sys = <span class="s4">60</span><span class="s1">*int(temp[</span><span class="s4">0</span><span class="s1">])</span>
+                    temp = temp[<span class="s4">1</span><span class="s1">]</span>
+                    temp = temp.split(<span class="s2">&quot;.&quot;</span><span class="s1">)</span>
+                    sys = sys + int(temp[<span class="s4">0</span><span class="s1">]) + (int(temp[</span><span class="s4">1</span><span class="s1">])/</span><span class="s4">1000</span><span class="s1">)</span>
+
+
+            <span class="s0">if </span><span class="s1">(process) </span><span class="s0">and </span><span class="s1">((real != </span><span class="s4">0</span><span class="s1">) </span><span class="s0">and </span><span class="s1">(user != </span><span class="s4">0</span><span class="s1">) </span><span class="s0">and </span><span class="s1">(sys != </span><span class="s4">0</span><span class="s1">)):</span>
+                fh.write(str(N) + <span class="s2">&quot;,&quot; </span><span class="s1">+ str(D) + </span><span class="s2">&quot;,&quot; </span><span class="s1">+str(real) + </span><span class="s2">&quot;,&quot; </span><span class="s1">+str(user) + </span><span class="s2">&quot;,&quot; </span><span class="s1">+str(sys) + </span><span class="s2">&quot;</span><span class="s0">\n</span><span class="s2">&quot;</span><span class="s1">)</span>
+        <span class="s0">except</span><span class="s1">:</span>
+            <span class="s0">pass</span>
+    <span class="s1">fh.close</span></pre>
+</body>
+</html>

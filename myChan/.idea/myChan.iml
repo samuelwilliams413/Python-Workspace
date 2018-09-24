@@ -8,6 +8,7 @@
     <orderEntry type="module" module-name="DataProcessing" />
     <orderEntry type="module" module-name="Tarot" />
     <orderEntry type="module" module-name="ComToHID" />
+    <orderEntry type="module" module-name="Nastrond" />
   </component>
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="Unittests" />
