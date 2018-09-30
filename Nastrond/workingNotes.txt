@@ -1,3 +1,4 @@
+python -m pip install --upgrade pip
 D:
 cd "D:\Github\Python-Workspace\Nastrond"
 python engine.py
