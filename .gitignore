@@ -179,4 +179,4 @@ fabric.properties
 # Editor-based Rest Client
 .idea/httpRequests
 libtcod-1.7.0-x86-msvc/
-*/.idea/
+*/.idea/*
