@@ -9,6 +9,7 @@
     <orderEntry type="module" module-name="Tarot" />
     <orderEntry type="module" module-name="ComToHID" />
     <orderEntry type="module" module-name="Nastrond" />
+    <orderEntry type="module" module-name="Ennead" />
   </component>
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="Unittests" />
