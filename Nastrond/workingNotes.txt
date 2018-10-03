@@ -6,3 +6,12 @@ python engine.py
 
 python -m pip install --upgrade pip
 http://rogueliketutorials.com/libtcod/1
+
+
+pyinstaller --onefile script.py
+
+python -m pip install --upgrade pip
+python -m pip install pyinstaller
+
+
+pyinstaller --onefile engine.py
