@@ -52,7 +52,7 @@
     <session id="-1325151402">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="17" />
+          <entry key="project.closed" value="18" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.13" value="2" />
@@ -130,7 +130,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../Nastrond/menus.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
+            <state relative-caret-position="495">
               <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
             </state>
           </provider>
@@ -446,7 +446,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1842" height="1013" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.500846" side_tool="true" weight="0.23975636" />
       <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49915397" visible="true" weight="0.23975636" />
@@ -774,7 +773,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../Nastrond/menus.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
+        <state relative-caret-position="495">
           <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
         </state>
       </provider>
