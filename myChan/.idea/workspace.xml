@@ -56,20 +56,20 @@
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.13" value="2" />
-          <entry key="project.open.time.14" value="5" />
+          <entry key="project.open.time.14" value="6" />
           <entry key="project.open.time.18" value="2" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="19" />
+          <entry key="project.opened" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="4" />
           <entry key="png" value="2" />
-          <entry key="py" value="107" />
+          <entry key="py" value="119" />
           <entry key="txt" value="11" />
         </counts>
       </usages-collector>
@@ -78,14 +78,14 @@
           <entry key="HTML" value="4" />
           <entry key="Image" value="2" />
           <entry key="PLAIN_TEXT" value="11" />
-          <entry key="Python" value="107" />
+          <entry key="Python" value="119" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="17" />
           <entry key="html" value="140" />
-          <entry key="py" value="6008" />
+          <entry key="py" value="6062" />
           <entry key="txt" value="226" />
         </counts>
       </usages-collector>
@@ -93,7 +93,7 @@
         <counts>
           <entry key="HTML" value="140" />
           <entry key="PLAIN_TEXT" value="226" />
-          <entry key="Python" value="6025" />
+          <entry key="Python" value="6079" />
         </counts>
       </usages-collector>
     </session>
@@ -103,11 +103,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../Nastrond/engine.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="270" selection-start-line="270" selection-end-line="270" />
+            <state relative-caret-position="350">
+              <caret line="82" column="18" lean-forward="true" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="18" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
@@ -116,31 +116,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Nastrond/loader_functions/data_loaders.py">
+        <entry file="file://$PROJECT_DIR$/../Nastrond/game_states.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="198">
+              <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Nastrond/menus.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+            <state relative-caret-position="507">
+              <caret line="82" column="106" selection-start-line="82" selection-start-column="106" selection-end-line="82" selection-end-column="106" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Nastrond/input_handlers.py">
+        <entry file="file://$PROJECT_DIR$/../Nastrond/map_objects/game_map.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="120" lean-forward="true" selection-start-line="120" selection-end-line="120" />
+            <state relative-caret-position="260">
+              <caret line="137" column="82" selection-start-line="137" selection-start-column="82" selection-end-line="137" selection-end-column="82" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
@@ -149,10 +146,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Nastrond/workingNotes.txt">
+        <entry file="file://$PROJECT_DIR$/../Nastrond/components/Level.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="360">
+              <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -160,11 +157,50 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Nastrond/loader_functions/initialize_new_game.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1692">
-              <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
+            <state relative-caret-position="72">
+              <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Nastrond/input_handlers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Nastrond/components/fighter.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="219">
+              <caret line="19" column="63" selection-start-line="19" selection-start-column="63" selection-end-line="19" selection-end-column="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Nastrond/render_functions.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="105" column="69" selection-start-line="105" selection-start-column="69" selection-end-line="105" selection-end-column="69" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Nastrond/entity.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -185,6 +221,13 @@
       <find>ifdebugMode</find>
       <find>debugMode : print</find>
       <find>py</find>
+      <find>libtcod.console_print_ex(panel, 1, 3, libtcod.BKGND_NONE, libtcod.LEFT</find>
+      <find>render_bar</find>
+      <find>targeting_cancelled</find>
+      <find>if targeting_cancelled:</find>
+      <find>if game_state == GameStates.TARGETING:</find>
+      <find>level_up</find>
+      <find>game_state in (GameStates.SHOW_INVENTORY, GameStates</find>
     </findStrings>
     <replaceStrings>
       <replace>id_value</replace>
@@ -221,33 +264,35 @@
         <option value="$PROJECT_DIR$/../Ennead/entity.py" />
         <option value="$PROJECT_DIR$/../Nastrond/menu.py" />
         <option value="$PROJECT_DIR$/../../SMW---Projects/P00I - Tarot Reader/03 - Preliminary Design/Tarot/major_tarot.py" />
-        <option value="$PROJECT_DIR$/../Nastrond/render_functions.py" />
         <option value="$PROJECT_DIR$/../Nastrond/item_functions.py" />
-        <option value="$PROJECT_DIR$/../Nastrond/game_states.py" />
         <option value="$PROJECT_DIR$/../Nastrond/game_messages.py" />
         <option value="$PROJECT_DIR$/../Nastrond/fov_functions.py" />
-        <option value="$PROJECT_DIR$/../Nastrond/entity.py" />
         <option value="$PROJECT_DIR$/../Nastrond/death_functions.py" />
         <option value="$PROJECT_DIR$/../Nastrond/components/ai.py" />
-        <option value="$PROJECT_DIR$/../Nastrond/components/fighter.py" />
         <option value="$PROJECT_DIR$/../Nastrond/components/inventory.py" />
         <option value="$PROJECT_DIR$/../Nastrond/components/item.py" />
-        <option value="$PROJECT_DIR$/../Nastrond/map_objects/game_map.py" />
         <option value="$PROJECT_DIR$/../Nastrond/map_objects/rectangle.py" />
         <option value="$PROJECT_DIR$/../Nastrond/map_objects/tile.py" />
         <option value="$PROJECT_DIR$/../Nastrond/initialize_new_game.py" />
         <option value="$PROJECT_DIR$/../Nastrond/workingNotes.txt" />
-        <option value="$PROJECT_DIR$/../Nastrond/loader_functions/initialize_new_game.py" />
         <option value="$PROJECT_DIR$/../Nastrond/loader_functions/data_loaders.py" />
-        <option value="$PROJECT_DIR$/../Nastrond/engine.py" />
-        <option value="$PROJECT_DIR$/../Nastrond/input_handlers.py" />
+        <option value="$PROJECT_DIR$/../Nastrond/components/stairs.py" />
+        <option value="$PROJECT_DIR$/../Nastrond/map_objects/game_map.py" />
+        <option value="$PROJECT_DIR$/../Nastrond/components/Level.py" />
+        <option value="$PROJECT_DIR$/../Nastrond/entity.py" />
+        <option value="$PROJECT_DIR$/../Nastrond/loader_functions/initialize_new_game.py" />
+        <option value="$PROJECT_DIR$/../Nastrond/components/fighter.py" />
+        <option value="$PROJECT_DIR$/../Nastrond/game_states.py" />
         <option value="$PROJECT_DIR$/../Nastrond/menus.py" />
+        <option value="$PROJECT_DIR$/../Nastrond/render_functions.py" />
+        <option value="$PROJECT_DIR$/../Nastrond/input_handlers.py" />
+        <option value="$PROJECT_DIR$/../Nastrond/engine.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-14" />
-    <option name="width" value="1428" />
+    <option name="width" value="1430" />
     <option name="height" value="973" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -269,7 +314,17 @@
             <path>
               <item name="myChan" type="b2602c69:ProjectViewProjectNode" />
               <item name="Nastrond" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myChan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Nastrond" type="462c0819:PsiDirectoryNode" />
               <item name="loader_functions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myChan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Nastrond" type="462c0819:PsiDirectoryNode" />
+              <item name="map_objects" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -446,6 +501,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1842" height="1013" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.500846" side_tool="true" weight="0.23975636" />
       <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49915397" visible="true" weight="0.23975636" />
@@ -620,13 +676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Nastrond/render_functions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="111" selection-start-line="111" selection-end-line="111" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Nastrond/item_functions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="507">
@@ -634,24 +683,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Nastrond/game_states.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Nastrond/game_messages.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="458">
           <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Nastrond/fov_functions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" lean-forward="true" selection-end-line="16" />
         </state>
       </provider>
     </entry>
@@ -672,13 +707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Nastrond/components/fighter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Nastrond/components/inventory.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1116">
@@ -693,24 +721,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Nastrond/map_objects/game_map.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2700">
-          <caret line="166" selection-start-line="166" selection-end-line="166" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Nastrond/map_objects/rectangle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Nastrond/entity.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1944">
-          <caret line="112" selection-start-line="112" selection-end-line="112" />
         </state>
       </provider>
     </entry>
@@ -721,40 +735,94 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Nastrond/workingNotes.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Nastrond/menu_background1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Nastrond/loader_functions/initialize_new_game.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1692">
-          <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../Nastrond/menu_background1.png" />
     <entry file="file://$PROJECT_DIR$/../Nastrond/loader_functions/data_loaders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        <state relative-caret-position="468">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Nastrond/engine.py">
+    <entry file="file://$PROJECT_DIR$/../Nastrond/workingNotes.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Nastrond/components/stairs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Nastrond/fov_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" lean-forward="true" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Nastrond/map_objects/game_map.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="137" column="82" selection-start-line="137" selection-start-column="82" selection-end-line="137" selection-end-column="82" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Nastrond/components/Level.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Nastrond/entity.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Nastrond/loader_functions/initialize_new_game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Nastrond/components/fighter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="19" column="63" selection-start-line="19" selection-start-column="63" selection-end-line="19" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Nastrond/game_states.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Nastrond/menus.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="507">
-          <caret line="270" selection-start-line="270" selection-end-line="270" />
+          <caret line="82" column="106" selection-start-line="82" selection-start-column="106" selection-end-line="82" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Nastrond/render_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="105" column="69" selection-start-line="105" selection-start-column="69" selection-end-line="105" selection-end-column="69" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
           </folding>
@@ -763,18 +831,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../Nastrond/input_handlers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="120" lean-forward="true" selection-start-line="120" selection-end-line="120" />
+        <state relative-caret-position="260">
+          <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Nastrond/menus.py">
+    <entry file="file://$PROJECT_DIR$/../Nastrond/engine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+        <state relative-caret-position="350">
+          <caret line="82" column="18" lean-forward="true" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
