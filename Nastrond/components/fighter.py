@@ -3,7 +3,8 @@ import libtcodpy as libtcod
 from game_messages import Message
 
 class Fighter:
-    def __init__(self, hp, defense, power, xp=0, knockback=0, strength=0, agility=0, toughness=0, intelligence=0, resolve=0, ego=0):
+    def __init__(self, hp, defense, power, xp=0, knockback=0, strength=0, agility=0, toughness=0, intelligence=0,
+                 resolve=0, ego=0, field_of_vision=10):
         self.base_max_hp = hp
         self.hp = hp
         self.base_defense = defense
@@ -16,6 +17,7 @@ class Fighter:
         self.base_intelligence = intelligence
         self.base_resolve = resolve
         self.base_ego = ego
+        self.base_field_of_vision = field_of_vision
 
     @property
     def strength(self):
@@ -25,6 +27,15 @@ class Fighter:
             bonus = 0
 
         return self.base_strength + bonus
+
+    @property
+    def field_of_vision(self):
+        if self.owner and self.owner.equipment:
+            bonus = self.owner.equipment.field_of_vision_bonus
+        else:
+            bonus = 0
+
+        return self.base_field_of_vision + bonus
 
     @property
     def agility(self):

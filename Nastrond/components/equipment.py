@@ -405,6 +405,45 @@ class Equipment:
 
         return bonus
 
+    @property
+    def field_of_vision_bonus(self):
+        bonus = 0
+
+        if self.main_hand and self.main_hand.equippable:
+            bonus += self.main_hand.equippable.field_of_vision_bonus
+
+        if self.off_hand and self.off_hand.equippable:
+            bonus += self.off_hand.equippable.field_of_vision_bonus
+
+        if self.head and self.head.equippable:
+            bonus += self.head.equippable.field_of_vision_bonus
+
+        if self.neck and self.neck.equippable:
+            bonus += self.neck.equippable.field_of_vision_bonus
+
+        if self.main_wrist and self.main_wrist.equippable:
+            bonus += self.main_wrist.equippable.field_of_vision_bonus
+
+        if self.off_wrist and self.off_wrist.equippable:
+            bonus += self.off_wrist.equippable.field_of_vision_bonus
+
+        if self.feet and self.feet.equippable:
+            bonus += self.feet.equippable.field_of_vision_bonus
+
+        if self.belt_pouch and self.belt_pouch.equippable:
+            bonus += self.belt_pouch.equippable.field_of_vision_bonus
+
+        if self.belt_skin and self.belt_skin.equippable:
+            bonus += self.belt_skin.equippable.field_of_vision_bonus
+
+        if self.belt_sheath and self.belt_sheath.equippable:
+            bonus += self.belt_sheath.equippable.field_of_vision_bonus
+
+        if self.bandolier and self.bandolier.equippable:
+            bonus += self.bandolier.equippable.field_of_vision_bonus
+
+        return bonus
+
     def toggle_equip(self, equippable_entity):
         results = []
 

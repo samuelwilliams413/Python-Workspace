@@ -33,5 +33,11 @@ def item_shield(x=0, y=0):
 
 def item_helmet(x=0, y=0):
     equippable_component = Equippable(EquipmentSlots.HEAD, defense_bonus=1, max_hp_bonus=1)
-    item = Entity(x, y, '[', libtcod.darker_orange, 'Shield', equippable=equippable_component)
+    item = Entity(x, y, '[', libtcod.darker_orange, 'Helmet', equippable=equippable_component)
+    return item
+
+
+def item_torch(x=0, y=0):
+    equippable_component = Equippable(EquipmentSlots.OFF_HAND, field_of_vision_bonus=20)
+    item = Entity(x, y, 'T', libtcod.darker_orange, 'Torch', equippable=equippable_component)
     return item

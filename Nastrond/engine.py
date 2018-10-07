@@ -32,7 +32,7 @@ def play_game(player, entities, game_map, message_log, game_state, con, panel, c
 
 
         if fov_recompute:
-            recompute_fov(fov_map, player.x, player.y, constants['fov_radius'], constants['fov_light_walls'],
+            recompute_fov(fov_map, player.x, player.y, player.fighter.field_of_vision, constants['fov_light_walls'],
                           constants['fov_algorithm'])
 
         render_all(con, panel, entities, player, game_map, fov_map, fov_recompute, message_log,

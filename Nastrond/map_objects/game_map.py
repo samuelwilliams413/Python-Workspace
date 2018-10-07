@@ -136,6 +136,7 @@ class GameMap:
         item_chances = {
             'healing_potion': 35,
             'mace': 80,
+            'torch': 95,
             'sword': from_dungeon_level([[5, 4]], self.dungeon_level),
             'shield': from_dungeon_level([[15, 8]], self.dungeon_level),
             'lightning_scroll': from_dungeon_level([[25, 4]], self.dungeon_level),
@@ -182,6 +183,8 @@ class GameMap:
                     item = item_mace(x, y)
                 elif item_choice == 'sword':
                     item = item_sword(x, y)
+                elif item_choice == 'torch':
+                    item = item_torch(x, y)
                 elif item_choice == 'shield':
                     item = item_shield(x, y)
                 elif item_choice == 'fireball_scroll':
