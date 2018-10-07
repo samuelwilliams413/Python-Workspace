@@ -3,6 +3,8 @@ import libtcodpy as libtcod
 from random import randint
 
 from game_messages import Message
+from entity import get_blocking_entities_at_location
+from components.effects import *
 
 
 class BasicMonster:
@@ -10,14 +12,19 @@ class BasicMonster:
         results = []
 
         monster = self.owner
-        if libtcod.map_is_in_fov(fov_map, monster.x, monster.y):
+        if libtcod.map_is_in_fov(fov_map, monster.x, monster.y) or monster.hasSeen:
+            monster.hasSeen = True
 
             if monster.distance_to(target) >= 2:
                 monster.move_astar(target, entities, game_map)
 
             elif target.fighter.hp > 0:
-                attack_results = monster.fighter.attack(target)
+                knockback_results = monster.fighter.resolve_knockback(target, game_map, entities)
+                results.extend(knockback_results)
+                attack_results = monster.fighter.resolve_attack(target)
                 results.extend(attack_results)
+
+
 
         return results
 

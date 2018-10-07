@@ -7,6 +7,7 @@ from components.equippable import Equippable
 from components.fighter import Fighter
 from components.item import Item
 from components.stairs import Stairs
+from components.weapon_rack import *
 
 from entity import Entity
 
@@ -134,6 +135,7 @@ class GameMap:
 
         item_chances = {
             'healing_potion': 35,
+            'mace': 80,
             'sword': from_dungeon_level([[5, 4]], self.dungeon_level),
             'shield': from_dungeon_level([[15, 8]], self.dungeon_level),
             'lightning_scroll': from_dungeon_level([[25, 4]], self.dungeon_level),
@@ -151,7 +153,7 @@ class GameMap:
                 monster_choice = random_choice_from_dict(monster_chances)
 
                 if monster_choice == 'orc':
-                    fighter_component = Fighter(hp=20, defense=0, power=4, xp=35)
+                    fighter_component = Fighter(hp=20, defense=0, power=4, xp=35, knockback=0, strength=4)
                     ai_component = BasicMonster()
 
                     monster = Entity(x, y, 'o', libtcod.desaturated_green, 'Orc', blocks=True,
@@ -176,12 +178,12 @@ class GameMap:
                     item_component = Item(use_function=heal, amount=40)
                     item = Entity(x, y, '!', libtcod.violet, 'Healing Potion', render_order=RenderOrder.ITEM,
                                   item=item_component)
+                elif item_choice == 'mace':
+                    item = item_mace(x, y)
                 elif item_choice == 'sword':
-                    equippable_component = Equippable(EquipmentSlots.MAIN_HAND, power_bonus=3)
-                    item = Entity(x, y, '/', libtcod.sky, 'Sword', equippable=equippable_component)
+                    item = item_sword(x, y)
                 elif item_choice == 'shield':
-                    equippable_component = Equippable(EquipmentSlots.OFF_HAND, defense_bonus=1)
-                    item = Entity(x, y, '[', libtcod.darker_orange, 'Shield', equippable=equippable_component)
+                    item = item_shield(x, y)
                 elif item_choice == 'fireball_scroll':
                     item_component = Item(use_function=cast_fireball, targeting=True, targeting_message=Message(
                         'Left-click a target tile for the fireball, or right-click to cancel.', libtcod.light_cyan),

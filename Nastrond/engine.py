@@ -11,6 +11,8 @@ from loader_functions.data_loaders import load_game, save_game
 from menus import main_menu, message_box
 from render_functions import clear_all, render_all
 
+from components.effects import *
+
 
 def play_game(player, entities, game_map, message_log, game_state, con, panel, constants):
     fov_recompute = True
@@ -28,6 +30,7 @@ def play_game(player, entities, game_map, message_log, game_state, con, panel, c
     while not libtcod.console_is_window_closed():
         libtcod.sys_check_for_event(libtcod.EVENT_KEY_PRESS | libtcod.EVENT_MOUSE, key, mouse)
 
+
         if fov_recompute:
             recompute_fov(fov_map, player.x, player.y, constants['fov_radius'], constants['fov_light_walls'],
                           constants['fov_algorithm'])
@@ -35,8 +38,6 @@ def play_game(player, entities, game_map, message_log, game_state, con, panel, c
         render_all(con, panel, entities, player, game_map, fov_map, fov_recompute, message_log,
                    constants['screen_width'], constants['screen_height'], constants['bar_width'],
                    constants['panel_height'], constants['panel_y'], mouse, constants['colors'], game_state)
-
-        fov_recompute = False
 
         libtcod.console_flush()
 
@@ -71,12 +72,13 @@ def play_game(player, entities, game_map, message_log, game_state, con, panel, c
                 target = get_blocking_entities_at_location(entities, destination_x, destination_y)
 
                 if target:
-                    attack_results = player.fighter.attack(target)
+                    knockback_results = player.fighter.resolve_knockback(target, game_map, entities)
+                    player_turn_results.extend(knockback_results)
+                    attack_results = player.fighter.resolve_attack(target)
                     player_turn_results.extend(attack_results)
+
                 else:
                     player.move(dx, dy)
-
-                    fov_recompute = True
 
                 game_state = GameStates.ENEMY_TURN
 

@@ -1,14 +1,15 @@
 import libtcodpy as libtcod
 
 from components.equipment import Equipment
-from components.equippable import Equippable
+
 from components.fighter import Fighter
 from components.inventory import Inventory
 from components.level import Level
+from components.weapon_rack import *
 
 from entity import Entity
 
-from equipment_slots import EquipmentSlots
+
 
 from game_messages import MessageLog
 
@@ -20,7 +21,7 @@ from render_functions import RenderOrder
 
 
 def get_constants():
-    window_title = 'Roguelike Tutorial Revised'
+    window_title = 'Nastrond'
 
     screen_width = 80
     screen_height = 50
@@ -81,8 +82,9 @@ def get_constants():
 
 
 def get_game_variables(constants):
-    fighter_component = Fighter(hp=100, defense=1, power=2)
-    inventory_component = Inventory(26)
+    fighter_component = Fighter(hp=100, defense=1, power=2, knockback=0, strength=0, agility=0, toughness=0,
+                                intelligence=0, resolve=0, ego=0)
+    inventory_component = Inventory(10)
     level_component = Level()
     equipment_component = Equipment()
     player = Entity(0, 0, '@', libtcod.white, 'Player', blocks=True, render_order=RenderOrder.ACTOR,
@@ -90,8 +92,7 @@ def get_game_variables(constants):
                     equipment=equipment_component)
     entities = [player]
 
-    equippable_component = Equippable(EquipmentSlots.MAIN_HAND, power_bonus=2)
-    dagger = Entity(0, 0, '-', libtcod.sky, 'Dagger', equippable=equippable_component)
+    dagger = item_dagger()
     player.inventory.add_item(dagger)
     player.equipment.toggle_equip(dagger)
 

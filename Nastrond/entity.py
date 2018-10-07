@@ -29,6 +29,8 @@ class Entity:
         self.equipment = equipment
         self.equippable = equippable
 
+        self.hasSeen = False
+
         if self.fighter:
             self.fighter.owner = self
 
@@ -62,6 +64,21 @@ class Entity:
         # Move the entity by a given amount
         self.x += dx
         self.y += dy
+
+    def move_direction(self, target, target_x, target_y, game_map, entities):
+        dx = target_x - self.x
+        dy = target_y - self.y
+        distance = math.sqrt(dx ** 2 + dy ** 2)
+
+        dx = int(round(dx / distance))
+        dy = int(round(dy / distance))
+
+        if not (game_map.is_blocked(target.x + dx, target.y + dy) or
+                    get_blocking_entities_at_location(entities, target.x + dx, target.y + dy)):
+            return dx, dy
+        else:
+            return 0, 0
+
 
     def move_towards(self, target_x, target_y, game_map, entities):
         dx = target_x - self.x
