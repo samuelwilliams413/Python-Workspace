@@ -52,9 +52,6 @@ def handle_player_turn_keys(key):
     elif key_char == 'd':
         return {'drop_inventory': True}
 
-    elif key_char == 'f':
-        return {'fluff_inventory': True}
-
     elif  key_char == 's':
         return {'take_stairs': True}
 
@@ -128,11 +125,17 @@ def handle_level_up_menu(key):
         key_char = chr(key.c)
 
         if key_char == 'a':
-            return {'level_up': 'hp'}
+            return {'level_up': 'Strength'}
         elif key_char == 'b':
-            return {'level_up': 'str'}
+            return {'level_up': 'Agility'}
         elif key_char == 'c':
-            return {'level_up': 'def'}
+            return {'level_up': 'Toughness'}
+        elif key_char == 'd':
+            return {'level_up': 'Intelligence'}
+        elif key_char == 'e':
+            return {'level_up': 'Resolve'}
+        elif key_char == 'f':
+            return {'level_up': 'Ego'}
 
     return {}
 

@@ -55,8 +55,10 @@ class Inventory:
         return results
 
     def view_fluff(self, item):
-
-        return {'item_fluff': True, 'message': Message('{0}'.format(item.fluff), libtcod.light_blue)}
+        results = []
+        results.append({'item_fluff': True})
+        results.append({'message': Message('{0}'.format(item.fluff), libtcod.light_blue)})
+        return results
 
     def remove_item(self, item):
         self.items.remove(item)

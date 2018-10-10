@@ -27,7 +27,7 @@ def beast_oni(x=0, y=0):
     return monster
 
 def beast_imp(x=0, y=0):
-    fighter_component = Fighter(hp=1, defense=0, power=3, xp=15, knockback=0, action_points=1, field_of_vision=10, speed=2)
+    fighter_component = Fighter(hp=1, defense=0, power=3, xp=15, knockback=0, action_points=1, field_of_vision=0, speed=2)
     ai_component = BasicMonster()
 
     monster = Entity(x, y, 'q', libtcod.dark_crimson,'Quick', fluff='Quick: Fast unit that hunts in packs', blocks=True,

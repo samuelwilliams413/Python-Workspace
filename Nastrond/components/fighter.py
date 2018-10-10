@@ -129,7 +129,7 @@ class Fighter:
         else:
             bonus = 0
 
-        return self.base_defense + self.agility + bonus
+        return self.base_defense + self.resolve + bonus
 
     @property
     def knockback(self):

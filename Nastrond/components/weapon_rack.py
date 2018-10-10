@@ -14,19 +14,19 @@ from entity import Entity
 
 def item_dagger(x=0, y=0):
     equippable_component = Equippable(EquipmentSlots.MAIN_HAND, power_bonus=2, knockback_bonus=0)
-    item = Entity(x, y, 'l', libtcod.brass, 'Dagger', fluff="Dagger: Your trust dagger", equippable=equippable_component)
+    item = Entity(x, y, 'l', libtcod.dark_orange, 'Dagger', fluff="Dagger: Your trust dagger", equippable=equippable_component)
     return item
 
 
 def item_sword(x=0, y=0):
     equippable_component = Equippable(EquipmentSlots.MAIN_HAND, power_bonus=3)
-    item = Entity(x, y, 'L', libtcod.brass, 'Sword', equippable=equippable_component)
+    item = Entity(x, y, 'L', libtcod.dark_orange, 'Sword', equippable=equippable_component)
     return item
 
 
 def item_mace(x=0, y=0):
-    equippable_component = Equippable(EquipmentSlots.MAIN_HAND, power_bonus=1, knockback_bonus=2)
-    item = Entity(x, y, 'P', libtcod.brass, 'Mace', equippable=equippable_component)
+    equippable_component = Equippable(EquipmentSlots.MAIN_HAND, power_bonus=1, knockback_bonus=1)
+    item = Entity(x, y, 'P', libtcod.dark_orange, 'Mace', equippable=equippable_component)
     return item
 
 
