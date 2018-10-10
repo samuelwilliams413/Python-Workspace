@@ -27,6 +27,8 @@ def play_game(player, entities, game_map, message_log, game_state, con, panel, c
 
     targeting_item = None
 
+    regen_turn = 0;
+
     while not libtcod.console_is_window_closed():
         libtcod.sys_check_for_event(libtcod.EVENT_KEY_PRESS | libtcod.EVENT_MOUSE, key, mouse)
 
@@ -51,6 +53,7 @@ def play_game(player, entities, game_map, message_log, game_state, con, panel, c
         pickup = action.get('pickup')
         show_inventory = action.get('show_inventory')
         drop_inventory = action.get('drop_inventory')
+        fluff_inventory = action.get('fluff_inventory')
         inventory_index = action.get('inventory_index')
         take_stairs = action.get('take_stairs')
         level_up = action.get('level_up')
@@ -62,6 +65,8 @@ def play_game(player, entities, game_map, message_log, game_state, con, panel, c
         right_click = mouse_action.get('right_click')
 
         player_turn_results = []
+
+
 
         if move and game_state == GameStates.PLAYERS_TURN:
             dx, dy = move
@@ -103,6 +108,10 @@ def play_game(player, entities, game_map, message_log, game_state, con, panel, c
             previous_game_state = game_state
             game_state = GameStates.DROP_INVENTORY
 
+        if fluff_inventory:
+            previous_game_state = game_state
+            game_state = GameStates.FLUFF_INVENTORY
+
         if inventory_index is not None and previous_game_state != GameStates.PLAYER_DEAD and inventory_index < len(
                 player.inventory.items):
             item = player.inventory.items[inventory_index]
@@ -111,6 +120,8 @@ def play_game(player, entities, game_map, message_log, game_state, con, panel, c
                 player_turn_results.extend(player.inventory.use(item, entities=entities, fov_map=fov_map))
             elif game_state == GameStates.DROP_INVENTORY:
                 player_turn_results.extend(player.inventory.drop_item(item))
+            elif game_state == GameStates.FLUFF_INVENTORY:
+                player_turn_results.extend(player.inventory.view_fluff(item))
 
         if take_stairs and game_state == GameStates.PLAYERS_TURN:
             for entity in entities:
@@ -150,7 +161,7 @@ def play_game(player, entities, game_map, message_log, game_state, con, panel, c
                 player_turn_results.append({'targeting_cancelled': True})
 
         if exit:
-            if game_state in (GameStates.SHOW_INVENTORY, GameStates.DROP_INVENTORY, GameStates.CHARACTER_SCREEN):
+            if game_state in (GameStates.SHOW_INVENTORY, GameStates.DROP_INVENTORY, GameStates.FLUFF_INVENTORY, GameStates.CHARACTER_SCREEN):
                 game_state = previous_game_state
             elif game_state == GameStates.TARGETING:
                 player_turn_results.append({'targeting_cancelled': True})
@@ -168,6 +179,7 @@ def play_game(player, entities, game_map, message_log, game_state, con, panel, c
             item_added = player_turn_result.get('item_added')
             item_consumed = player_turn_result.get('consumed')
             item_dropped = player_turn_result.get('item_dropped')
+            item_fluff = player_turn_result.get('item_fluff')
             equip = player_turn_result.get('equip')
             targeting = player_turn_result.get('targeting')
             targeting_cancelled = player_turn_result.get('targeting_cancelled')
@@ -195,6 +207,9 @@ def play_game(player, entities, game_map, message_log, game_state, con, panel, c
             if item_dropped:
                 entities.append(item_dropped)
 
+                game_state = GameStates.ENEMY_TURN
+
+            if item_fluff:
                 game_state = GameStates.ENEMY_TURN
 
             if equip:
@@ -259,7 +274,9 @@ def play_game(player, entities, game_map, message_log, game_state, con, panel, c
 
                     if game_state == GameStates.PLAYER_DEAD:
                         break
+
             else:
+                regen_turn = player.fighter.regen_vim(regen_turn)
                 game_state = GameStates.PLAYERS_TURN
 
 

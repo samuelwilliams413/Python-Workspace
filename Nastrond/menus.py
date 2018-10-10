@@ -42,6 +42,22 @@ def inventory_menu(con, header, player, inventory_width, screen_width, screen_he
                 options.append('{0} (on main hand)'.format(item.name))
             elif player.equipment.off_hand == item:
                 options.append('{0} (on off hand)'.format(item.name))
+            elif player.equipment.head == item:
+                options.append('{0} (on head)'.format(item.name))
+            elif player.equipment.neck == item:
+                options.append('{0} (on neck)'.format(item.name))
+            elif player.equipment.main_wrist == item:
+                options.append('{0} (on wrist)'.format(item.name))
+            elif player.equipment.off_wrist == item:
+                options.append('{0} (on wrist)'.format(item.name))
+            elif player.equipment.feet == item:
+                options.append('{0} (on feet)'.format(item.name))
+            elif player.equipment.torso == item:
+                options.append('{0} (on torso)'.format(item.name))
+            elif player.equipment.legs == item:
+                options.append('{0} (on legs)'.format(item.name))
+            elif player.equipment.back == item:
+                options.append('{0} (on back)'.format(item.name))
             else:
                 options.append(item.name)
 

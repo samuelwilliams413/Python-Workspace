@@ -12,19 +12,44 @@ class BasicMonster:
         results = []
 
         monster = self.owner
+
+
+        monster.hasSeen = monster.fighter.canSee(target)
+
         if libtcod.map_is_in_fov(fov_map, monster.x, monster.y) or monster.hasSeen:
+
             monster.hasSeen = True
 
+            for x in range(0, monster.fighter.speed):
+                if monster.distance_to(target) >= 2:
+                    monster.move_astar(target, entities, game_map)
+
+            for x in range(0, monster.fighter.AP):
+
+                if monster.distance_to(target) >= 2:
+                    monster.move_astar(target, entities, game_map)
+
+                elif target.fighter.hp > 0:
+                    knockback_results = monster.fighter.resolve_knockback(target, game_map, entities)
+                    results.extend(knockback_results)
+                    attack_results = monster.fighter.resolve_attack(target)
+                    results.extend(attack_results)
+
+
+
+        return results
+
+class FastMonster:
+    def take_turn(self, target, fov_map, game_map, entities):
+        results = []
+
+        monster = self.owner
+
+        for x in range(0, monster.fighter.speed):
             if monster.distance_to(target) >= 2:
                 monster.move_astar(target, entities, game_map)
 
-            elif target.fighter.hp > 0:
-                knockback_results = monster.fighter.resolve_knockback(target, game_map, entities)
-                results.extend(knockback_results)
-                attack_results = monster.fighter.resolve_attack(target)
-                results.extend(attack_results)
-
-
+        results = self.take_turn(target, fov_map, game_map, entities)
 
         return results
 

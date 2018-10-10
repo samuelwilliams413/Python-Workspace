@@ -49,8 +49,8 @@ def get_constants():
     max_items_per_room = 2
 
     colors = {
-        'dark_wall': libtcod.Color(0, 0, 100),
-        'dark_ground': libtcod.Color(50, 50, 150),
+        'dark_wall': libtcod.Color(59, 59, 59),
+        'dark_ground': libtcod.Color(80, 80, 80),
         'light_wall': libtcod.Color(130, 110, 50),
         'light_ground': libtcod.Color(200, 180, 50)
     }
@@ -82,19 +82,26 @@ def get_constants():
 
 
 def get_game_variables(constants):
-    fighter_component = Fighter(hp=100, defense=1, power=2, knockback=0, strength=0, agility=0, toughness=0,
-                                intelligence=0, resolve=0, ego=0)
-    inventory_component = Inventory(10)
+    fighter_component = Fighter(hp=100, defense=1, power=2, knockback=0, strength=10, agility=10, toughness=10,
+                                intelligence=10, resolve=10, ego=10, vim=10, action_points=1)
+
+    inventory_component = Inventory(20)
     level_component = Level()
     equipment_component = Equipment()
-    player = Entity(0, 0, '@', libtcod.white, 'Player', blocks=True, render_order=RenderOrder.ACTOR,
+    player = Entity(0, 0, '@', libtcod.white, 'Player', fluff='Player: This is you', blocks=True, render_order=RenderOrder.ACTOR,
                     fighter=fighter_component, inventory=inventory_component, level=level_component,
                     equipment=equipment_component)
+    player.fighter.heal(100);
+    player.fighter.heal_vim(100);
     entities = [player]
 
     dagger = item_dagger()
     player.inventory.add_item(dagger)
     player.equipment.toggle_equip(dagger)
+
+    headlamp = item_headlamp()
+    player.inventory.add_item(headlamp)
+    player.equipment.toggle_equip(headlamp)
 
     game_map = GameMap(constants['map_width'], constants['map_height'])
     game_map.make_map(constants['max_rooms'], constants['room_min_size'], constants['room_max_size'],

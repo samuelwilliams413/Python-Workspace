@@ -3,21 +3,43 @@ import libtcodpy as libtcod
 from game_messages import Message
 
 class Fighter:
-    def __init__(self, hp, defense, power, xp=0, knockback=0, strength=0, agility=0, toughness=0, intelligence=0,
-                 resolve=0, ego=0, field_of_vision=10):
+    def __init__(self, hp, defense, power, action_points=1, xp=0, vim=0, knockback=0, strength=0, agility=0, toughness=0, intelligence=0,
+                 resolve=0, ego=0, field_of_vision=1, speed=0):
         self.base_max_hp = hp
         self.hp = hp
+        self.base_max_vim = vim
+        self.vim = vim // 2
         self.base_defense = defense
         self.base_power = power
+        self.action_points = action_points
         self.base_knockback = knockback
         self.xp = xp
         self.base_strength = strength
+        self.base_speed = speed
         self.base_agility = agility
         self.base_toughness = toughness
         self.base_intelligence = intelligence
         self.base_resolve = resolve
         self.base_ego = ego
         self.base_field_of_vision = field_of_vision
+
+    @property
+    def max_vim(self):
+        if self.owner and self.owner.equipment:
+            bonus = self.owner.equipment.max_vim_bonus
+        else:
+            bonus = 0
+
+        return self.base_max_vim + self.intelligence + bonus
+
+    @property
+    def AP(self):
+        if self.owner and self.owner.equipment:
+            bonus = self.owner.equipment.action_points_bonus
+        else:
+            bonus = 0
+
+        return self.action_points + bonus
 
     @property
     def strength(self):
@@ -89,7 +111,7 @@ class Fighter:
         else:
             bonus = 0
 
-        return self.base_max_hp + bonus
+        return self.base_max_hp + self.toughness*self.owner.level.current_level + bonus
 
     @property
     def power(self):
@@ -98,7 +120,7 @@ class Fighter:
         else:
             bonus = 0
 
-        return self.base_power + bonus
+        return self.base_power + self.strength + bonus
 
     @property
     def defense(self):
@@ -107,7 +129,7 @@ class Fighter:
         else:
             bonus = 0
 
-        return self.base_defense + bonus
+        return self.base_defense + self.agility + bonus
 
     @property
     def knockback(self):
@@ -117,6 +139,15 @@ class Fighter:
             bonus = 0
 
         return self.base_knockback + bonus
+
+    @property
+    def speed(self):
+        if self.owner and self.owner.equipment:
+            bonus = self.owner.equipment.speed_bonus
+        else:
+            bonus = 0
+
+        return self.base_speed + bonus
 
     def take_damage(self, amount):
         results = []
@@ -134,10 +165,40 @@ class Fighter:
         if self.hp > self.max_hp:
             self.hp = self.max_hp
 
+    def use_vim(self, amount):
+        self.vim -= amount
+
+        if self.vim <= 0:
+            self.vim = 0
+
+    def heal_vim(self, amount):
+        self.vim += amount
+
+        if self.vim > self.max_vim:
+            self.vim = self.max_vim
+
+    def regen_vim(self, turn):
+        if (turn + self.resolve) > 10:
+            self.vim += 1
+
+            if self.vim > self.max_vim:
+                self.vim = self.max_vim
+
+            turn = 0
+        else:
+            turn += 1
+
+        return turn
+
+
     def resolve_attack(self, target):
         results = []
 
-        damage = self.power - target.fighter.defense
+        defense = target.fighter.defense - self.agility
+        if defense < 0:
+            defense = 0
+
+        damage = self.power - defense
 
         if damage > 0:
             results.append({'message': Message('{0} attacks {1} for {2} hit points.'.format(
@@ -151,8 +212,16 @@ class Fighter:
 
 
     def knockback_qty(self, target):
-        knockback = self.knockback - target.fighter.strength
+        knockback = 0
+        if self.knockback > 0:
+            knockback = self.knockback + self.strength - target.fighter.strength
         return knockback
+
+
+    def canSee(self, target):
+        if self.field_of_vision >= self.owner.distance_to(target):
+            return True
+        return False
 
 
     def resolve_knockback(self, target, game_map, entities):
@@ -170,4 +239,7 @@ class Fighter:
         if actual_distance > 0:
             results.append({'message': Message('{0} knocks back {1} {2} paces.'.format(
                 self.owner.name.capitalize(), target.name, str(actual_distance)), libtcod.white)})
+        elif self.knockback > 0:
+            results.append({'message': Message('{0} tries to knock back {1}, {1} stands strong!'.format(
+                self.owner.name.capitalize(), target.name), libtcod.white)})
         return results

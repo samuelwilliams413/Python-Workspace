@@ -3,7 +3,7 @@ from equipment_slots import EquipmentSlots
 
 class Equipment:
     def __init__(self, main_hand=None, off_hand=None, head=None, neck=None, main_wrist=None, off_wrist=None, feet=None,
-                 belt_pouch=None, belt_skin=None, belt_sheath=None, bandolier=None,):
+                 belt_pouch=None, belt_skin=None, belt_sheath=None, bandolier=None, back=None, torso=None, legs=None):
         self.main_hand = main_hand
         self.off_hand = off_hand
         self.head = head
@@ -15,6 +15,9 @@ class Equipment:
         self.belt_skin = belt_skin
         self.belt_sheath = belt_sheath
         self.bandolier = bandolier
+        self.back = back
+        self.torso = torso
+        self.legs = legs
 
     @property
     def max_hp_bonus(self):
@@ -52,6 +55,44 @@ class Equipment:
 
         if self.bandolier and self.bandolier.equippable:
             bonus += self.bandolier.equippable.max_hp_bonus
+        return bonus
+
+    @property
+    def max_vim_bonus(self):
+        bonus = 0
+
+        if self.main_hand and self.main_hand.equippable:
+            bonus += self.main_hand.equippable.max_vim_bonus
+
+        if self.off_hand and self.off_hand.equippable:
+            bonus += self.off_hand.equippable.max_vim_bonus
+
+        if self.head and self.head.equippable:
+            bonus += self.head.equippable.max_vim_bonus
+
+        if self.neck and self.neck.equippable:
+            bonus += self.neck.equippable.max_vim_bonus
+
+        if self.main_wrist and self.main_wrist.equippable:
+            bonus += self.main_wrist.equippable.max_vim_bonus
+
+        if self.off_wrist and self.off_wrist.equippable:
+            bonus += self.off_wrist.equippable.max_vim_bonus
+
+        if self.feet and self.feet.equippable:
+            bonus += self.feet.equippable.max_vim_bonus
+
+        if self.belt_pouch and self.belt_pouch.equippable:
+            bonus += self.belt_pouch.equippable.max_vim_bonus
+
+        if self.belt_skin and self.belt_skin.equippable:
+            bonus += self.belt_skin.equippable.max_vim_bonus
+
+        if self.belt_sheath and self.belt_sheath.equippable:
+            bonus += self.belt_sheath.equippable.max_vim_bonus
+
+        if self.bandolier and self.bandolier.equippable:
+            bonus += self.bandolier.equippable.max_vim_bonus
         return bonus
 
     @property
@@ -129,6 +170,84 @@ class Equipment:
 
         if self.bandolier and self.bandolier.equippable:
             bonus += self.bandolier.equippable.defense_bonus
+
+        return bonus
+
+    @property
+    def speed_bonus(self):
+        bonus = 0
+
+        if self.main_hand and self.main_hand.equippable:
+            bonus += self.main_hand.equippable.speed_bonus
+
+        if self.off_hand and self.off_hand.equippable:
+            bonus += self.off_hand.equippable.speed_bonus
+
+        if self.head and self.head.equippable:
+            bonus += self.head.equippable.speed_bonus
+
+        if self.neck and self.neck.equippable:
+            bonus += self.neck.equippable.speed_bonus
+
+        if self.main_wrist and self.main_wrist.equippable:
+            bonus += self.main_wrist.equippable.speed_bonus
+
+        if self.off_wrist and self.off_wrist.equippable:
+            bonus += self.off_wrist.equippable.speed_bonus
+
+        if self.feet and self.feet.equippable:
+            bonus += self.feet.equippable.speed_bonus
+
+        if self.belt_pouch and self.belt_pouch.equippable:
+            bonus += self.belt_pouch.equippable.speed_bonus
+
+        if self.belt_skin and self.belt_skin.equippable:
+            bonus += self.belt_skin.equippable.speed_bonus
+
+        if self.belt_sheath and self.belt_sheath.equippable:
+            bonus += self.belt_sheath.equippable.speed_bonus
+
+        if self.bandolier and self.bandolier.equippable:
+            bonus += self.bandolier.equippable.speed_bonus
+
+        return bonus
+
+    @property
+    def action_points_bonus(self):
+        bonus = 0
+
+        if self.main_hand and self.main_hand.equippable:
+            bonus += self.main_hand.equippable.action_points_bonus
+
+        if self.off_hand and self.off_hand.equippable:
+            bonus += self.off_hand.equippable.action_points_bonus
+
+        if self.head and self.head.equippable:
+            bonus += self.head.equippable.action_points_bonus
+
+        if self.neck and self.neck.equippable:
+            bonus += self.neck.equippable.action_points_bonus
+
+        if self.main_wrist and self.main_wrist.equippable:
+            bonus += self.main_wrist.equippable.action_points_bonus
+
+        if self.off_wrist and self.off_wrist.equippable:
+            bonus += self.off_wrist.equippable.action_points_bonus
+
+        if self.feet and self.feet.equippable:
+            bonus += self.feet.equippable.action_points_bonus
+
+        if self.belt_pouch and self.belt_pouch.equippable:
+            bonus += self.belt_pouch.equippable.action_points_bonus
+
+        if self.belt_skin and self.belt_skin.equippable:
+            bonus += self.belt_skin.equippable.action_points_bonus
+
+        if self.belt_sheath and self.belt_sheath.equippable:
+            bonus += self.belt_sheath.equippable.action_points_bonus
+
+        if self.bandolier and self.bandolier.equippable:
+            bonus += self.bandolier.equippable.action_points_bonus
 
         return bonus
 
@@ -468,6 +587,94 @@ class Equipment:
                     results.append({'dequipped': self.off_hand})
 
                 self.off_hand = equippable_entity
+                results.append({'equipped': equippable_entity})
+
+        elif slot == EquipmentSlots.HEAD:
+            if self.head == equippable_entity:
+                self.head = None
+                results.append({'dequipped': equippable_entity})
+            else:
+                if self.head:
+                    results.append({'dequipped': self.head})
+
+                self.head = equippable_entity
+                results.append({'equipped': equippable_entity})
+
+        elif slot == EquipmentSlots.NECK:
+            if self.neck == equippable_entity:
+                self.neck = None
+                results.append({'dequipped': equippable_entity})
+            else:
+                if self.neck:
+                    results.append({'dequipped': self.neck})
+
+                self.neck = equippable_entity
+                results.append({'equipped': equippable_entity})
+
+        elif slot == EquipmentSlots.MAIN_WRIST:
+            if self.main_wrist == equippable_entity:
+                self.main_wrist = None
+                results.append({'dequipped': equippable_entity})
+            else:
+                if self.main_wrist:
+                    results.append({'dequipped': self.main_wrist})
+
+                self.head = equippable_entity
+                results.append({'equipped': equippable_entity})
+
+        elif slot == EquipmentSlots.OFF_WRIST:
+            if self.off_wrist == equippable_entity:
+                self.off_wrist = None
+                results.append({'dequipped': equippable_entity})
+            else:
+                if self.off_wrist:
+                    results.append({'dequipped': self.off_wrist})
+
+                self.off_wrist = equippable_entity
+                results.append({'equipped': equippable_entity})
+
+        elif slot == EquipmentSlots.FEET:
+            if self.feet == equippable_entity:
+                self.feet = None
+                results.append({'dequipped': equippable_entity})
+            else:
+                if self.feet:
+                    results.append({'dequipped': self.feet})
+
+                self.feet = equippable_entity
+                results.append({'equipped': equippable_entity})
+
+        elif slot == EquipmentSlots.TORSO :
+            if self.torso == equippable_entity:
+                self.torso = None
+                results.append({'dequipped': equippable_entity})
+            else:
+                if self.torso:
+                    results.append({'dequipped': self.torso})
+
+                self.torso = equippable_entity
+                results.append({'equipped': equippable_entity})
+
+        elif slot == EquipmentSlots.BACK:
+            if self.back == equippable_entity:
+                self.back = None
+                results.append({'dequipped': equippable_entity})
+            else:
+                if self.back:
+                    results.append({'dequipped': self.back})
+
+                self.back = equippable_entity
+                results.append({'equipped': equippable_entity})
+
+        elif slot == EquipmentSlots.LEGS:
+            if self.legs == equippable_entity:
+                self.legs = None
+                results.append({'dequipped': equippable_entity})
+            else:
+                if self.legs:
+                    results.append({'dequipped': self.legs})
+
+                self.legs = equippable_entity
                 results.append({'equipped': equippable_entity})
 
         return results

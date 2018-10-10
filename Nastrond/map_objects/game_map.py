@@ -1,17 +1,20 @@
 import libtcodpy as libtcod
 from random import randint
 
-from components.ai import BasicMonster
+from components.ai import *
 from components.equipment import EquipmentSlots
 from components.equippable import Equippable
 from components.fighter import Fighter
 from components.item import Item
 from components.stairs import Stairs
 from components.weapon_rack import *
+from components.beastiary import *
 
 from entity import Entity
 
 from game_messages import Message
+
+from rarity import Rarity
 
 from item_functions import cast_confuse, cast_fireball, cast_lightning, heal
 
@@ -129,19 +132,21 @@ class GameMap:
         number_of_items = randint(0, max_items_per_room)
 
         monster_chances = {
-            'orc': 80,
-            'troll': from_dungeon_level([[15, 3], [30, 5], [60, 7]], self.dungeon_level)
+            'imp': int(Rarity.COMMON),
+            'wraith': from_dungeon_level([[int(Rarity.UNCOMMON), 0], [int(Rarity.COMMON), 3]], self.dungeon_level),
+            'cultist': from_dungeon_level([[int(Rarity.COMMON), 0], [int(Rarity.UNCOMMON), 2], [int(Rarity.SCARCE), 4]], self.dungeon_level),
+            'oni': from_dungeon_level([[0, 0], [int(Rarity.SCARCE), 3], [int(Rarity.UNCOMMON), 5], [int(Rarity.COMMON), 7]], self.dungeon_level)
         }
 
         item_chances = {
-            'healing_potion': 35,
-            'mace': 80,
-            'torch': 95,
-            'sword': from_dungeon_level([[5, 4]], self.dungeon_level),
-            'shield': from_dungeon_level([[15, 8]], self.dungeon_level),
-            'lightning_scroll': from_dungeon_level([[25, 4]], self.dungeon_level),
-            'fireball_scroll': from_dungeon_level([[25, 6]], self.dungeon_level),
-            'confusion_scroll': from_dungeon_level([[10, 2]], self.dungeon_level)
+            'healing_potion': int(Rarity.ABUNDANT),
+            'mace': int(Rarity.UNCOMMON),
+            'torch': int(Rarity.COMMON),
+            'sword': from_dungeon_level([[int(Rarity.UNCOMMON), 4]], self.dungeon_level),
+            'shield': from_dungeon_level([[int(Rarity.UNCOMMON), 8]], self.dungeon_level),
+            'lightning_scroll': from_dungeon_level([[int(Rarity.COMMON), 4]], self.dungeon_level),
+            'fireball_scroll': from_dungeon_level([[int(Rarity.COMMON), 6]], self.dungeon_level),
+            'confusion_scroll': from_dungeon_level([[int(Rarity.COMMON), 2]], self.dungeon_level)
         }
 
         for i in range(number_of_monsters):
@@ -153,18 +158,26 @@ class GameMap:
             if not any([entity for entity in entities if entity.x == x and entity.y == y]):
                 monster_choice = random_choice_from_dict(monster_chances)
 
-                if monster_choice == 'orc':
-                    fighter_component = Fighter(hp=20, defense=0, power=4, xp=35, knockback=0, strength=4)
-                    ai_component = BasicMonster()
+                monster = beast_cultist(x, y)
+                if monster_choice == 'cultist':
+                    monster = beast_cultist(x,y)
 
-                    monster = Entity(x, y, 'o', libtcod.desaturated_green, 'Orc', blocks=True,
-                                     render_order=RenderOrder.ACTOR, fighter=fighter_component, ai=ai_component)
-                else:
-                    fighter_component = Fighter(hp=30, defense=2, power=8, xp=100)
-                    ai_component = BasicMonster()
+                elif monster_choice == 'imp':
+                    monster = beast_imp(x,y)
+                    for i in range(0,randint(1,3)):
+                        entities.append(monster)
+                        # Choose a random location in the room
+                        while(any([entity for entity in entities if entity.x == x and entity.y == y])):
+                            x = randint(room.x1 + 1, room.x2 - 1)
+                            y = randint(room.y1 + 1, room.y2 - 1)
+                        monster = beast_imp(x,y)
 
-                    monster = Entity(x, y, 'T', libtcod.darker_green, 'Troll', blocks=True, fighter=fighter_component,
-                                     render_order=RenderOrder.ACTOR, ai=ai_component)
+                elif monster_choice == 'wraith':
+                    monster = beast_wraith(x,y)
+
+                elif monster_choice == 'oni':
+                    monster = beast_oni(x,y)
+
 
                 entities.append(monster)
 
@@ -220,6 +233,7 @@ class GameMap:
                       constants['map_width'], constants['map_height'], player, entities)
 
         player.fighter.heal(player.fighter.max_hp // 2)
+        player.fighter.use_vim(player.fighter.vim // 2)
 
         message_log.add_message(Message('You take a moment to rest, and recover your strength.', libtcod.light_violet))
 

@@ -17,7 +17,7 @@ class RenderOrder(Enum):
 def get_names_under_mouse(mouse, entities, fov_map):
     (x, y) = (mouse.cx, mouse.cy)
 
-    names = [entity.name for entity in entities
+    names = [entity.fluff for entity in entities
              if entity.x == x and entity.y == y and libtcod.map_is_in_fov(fov_map, entity.x, entity.y)]
     names = ', '.join(names)
 
@@ -81,8 +81,10 @@ def render_all(con, panel, entities, player, game_map, fov_map, fov_recompute, m
 
     render_bar(panel, 1, 1, bar_width, 'HP', player.fighter.hp, player.fighter.max_hp,
                libtcod.light_red, libtcod.darker_red)
+    render_bar(panel, 1, 3, bar_width, 'VIM', player.fighter.vim, player.fighter.max_vim,
+               libtcod.light_blue, libtcod.darker_blue)
 
-    libtcod.console_print_ex(panel, 1, 3, libtcod.BKGND_NONE, libtcod.LEFT,
+    libtcod.console_print_ex(panel, 1, 5, libtcod.BKGND_NONE, libtcod.LEFT,
                              'Dungeon level: {0}'.format(game_map.dungeon_level))
 
     libtcod.console_set_default_foreground(panel, libtcod.light_gray)
@@ -91,9 +93,11 @@ def render_all(con, panel, entities, player, game_map, fov_map, fov_recompute, m
 
     libtcod.console_blit(panel, 0, 0, screen_width, panel_height, 0, 0, panel_y)
 
-    if game_state in (GameStates.SHOW_INVENTORY, GameStates.DROP_INVENTORY):
+    if game_state in (GameStates.SHOW_INVENTORY, GameStates.DROP_INVENTORY, GameStates.FLUFF_INVENTORY):
         if game_state == GameStates.SHOW_INVENTORY:
             inventory_title = 'Press the key next to an item to use it, or Esc to cancel.\n'
+        elif game_state == GameStates.FLUFF_INVENTORY:
+            inventory_title = 'Press the key next to an item to see its fluff, or Esc to cancel.\n'
         else:
             inventory_title = 'Press the key next to an item to drop it, or Esc to cancel.\n'
 

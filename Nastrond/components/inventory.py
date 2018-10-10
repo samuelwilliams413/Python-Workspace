@@ -8,6 +8,7 @@ class Inventory:
         self.capacity = capacity
         self.items = []
 
+
     def add_item(self, item):
         results = []
 
@@ -53,13 +54,21 @@ class Inventory:
 
         return results
 
+    def view_fluff(self, item):
+
+        return {'item_fluff': True, 'message': Message('{0}'.format(item.fluff), libtcod.light_blue)}
+
     def remove_item(self, item):
         self.items.remove(item)
 
     def drop_item(self, item):
         results = []
 
-        if self.owner.equipment.main_hand == item or self.owner.equipment.off_hand == item:
+        if self.owner.equipment.main_hand == item or self.owner.equipment.off_hand == item \
+                or self.owner.equipment.head == item or self.owner.equipment.neck == item \
+                or self.owner.equipment.main_wrist == item or self.owner.equipment.off_hand == item \
+                or self.owner.equipment.feet == item or self.owner.equipment.torso == item \
+                or self.owner.equipment.back == item or self.owner.equipment.legs == item:
             self.owner.equipment.toggle_equip(item)
 
         item.x = self.owner.x

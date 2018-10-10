@@ -13,4 +13,7 @@ class EquipmentSlots(Enum):
     BELT_SKIN = 9
     BELT_SHEATH = 10
     BANDOLEER = 11
+    TORSO = 12
+    BACK = 13
+    LEGS = 14
 
