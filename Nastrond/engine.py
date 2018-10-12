@@ -60,6 +60,7 @@ def play_game(player, entities, game_map, message_log, game_state, con, panel, c
         show_character_screen = action.get('show_character_screen')
         exit = action.get('exit')
         fullscreen = action.get('fullscreen')
+        power = action.get('power')
 
         left_click = mouse_action.get('left_click')
         right_click = mouse_action.get('right_click')
@@ -111,6 +112,17 @@ def play_game(player, entities, game_map, message_log, game_state, con, panel, c
         if fluff_inventory:
             previous_game_state = game_state
             game_state = GameStates.FLUFF_INVENTORY
+
+        if power:
+
+            item = player.magic.powers[power - 1]
+            power_cost = item.item.cost
+            if player.fighter.vim >= power_cost:
+                previous_game_state = game_state
+                player_turn_results.extend(player.inventory.use(item, power=True, entities=entities, fov_map=fov_map))
+            else:
+                message_log.add_message(Message('Not enough Ki to cast.', libtcod.yellow))
+
 
         if inventory_index is not None and previous_game_state != GameStates.PLAYER_DEAD and inventory_index < len(
                 player.inventory.items):
@@ -189,6 +201,7 @@ def play_game(player, entities, game_map, message_log, game_state, con, panel, c
             targeting = player_turn_result.get('targeting')
             targeting_cancelled = player_turn_result.get('targeting_cancelled')
             xp = player_turn_result.get('xp')
+            power_used = player_turn_result.get('power_used')
 
             if message:
                 message_log.add_message(message)
@@ -215,6 +228,9 @@ def play_game(player, entities, game_map, message_log, game_state, con, panel, c
                 game_state = GameStates.ENEMY_TURN
 
             if item_fluff:
+                game_state = GameStates.ENEMY_TURN
+
+            if power_used:
                 game_state = GameStates.ENEMY_TURN
 
             if equip:

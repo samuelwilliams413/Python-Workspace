@@ -1,5 +1,6 @@
 import libtcodpy as libtcod
 
+from math import exp
 from game_messages import Message
 
 class Fighter:
@@ -166,6 +167,7 @@ class Fighter:
             self.hp = self.max_hp
 
     def use_vim(self, amount):
+        #if amount is not None:
         self.vim -= amount
 
         if self.vim <= 0:
@@ -198,7 +200,9 @@ class Fighter:
         if defense < 0:
             defense = 0
 
-        damage = self.power - defense
+        defense = (exp(defense) ** -0.1)
+
+        damage = int(self.power * defense)
 
         if damage > 0:
             results.append({'message': Message('{0} attacks {1} for {2} hit points.'.format(

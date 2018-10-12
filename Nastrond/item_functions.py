@@ -8,6 +8,8 @@ from game_messages import Message
 def heal(*args, **kwargs):
     entity = args[0]
     amount = kwargs.get('amount')
+    power = kwargs.get('power')
+    cost = kwargs.get('cost')
 
     results = []
 
@@ -15,7 +17,13 @@ def heal(*args, **kwargs):
         results.append({'consumed': False, 'message': Message('You are already at full health', libtcod.yellow)})
     else:
         entity.fighter.heal(amount)
-        results.append({'consumed': True, 'message': Message('Your wounds start to feel better!', libtcod.green)})
+        entity.fighter.use_vim(cost)
+        results.append({'power_used': True})
+        if power:
+            results.append({'consumed': False, 'message': Message('Your wounds start to feel better!', libtcod.green)})
+
+        else:
+            results.append({'consumed': True, 'message': Message('Your wounds start to feel better!', libtcod.green)})
 
     return results
 
@@ -63,6 +71,7 @@ def cast_fireball(*args, **kwargs):
         results.append({'consumed': False, 'message': Message('You cannot target a tile outside your field of view.', libtcod.yellow)})
         return results
 
+
     results.append({'consumed': True, 'message': Message('The fireball explodes, burning everything within {0} tiles!'.format(radius), libtcod.orange)})
 
     for entity in entities:
@@ -72,6 +81,41 @@ def cast_fireball(*args, **kwargs):
 
     return results
 
+
+
+
+def cast_bow(*args, **kwargs):
+
+    entities = kwargs.get('entities')
+    fov_map = kwargs.get('fov_map')
+    damage = kwargs.get('damage')
+    radius = kwargs.get('radius')
+    target_x = kwargs.get('target_x')
+    target_y = kwargs.get('target_y')
+    power = kwargs.get('power')
+    cost = kwargs.get('cost')
+
+    results = []
+
+    if not libtcod.map_is_in_fov(fov_map, target_x, target_y):
+        results.append({'consumed': False, 'message': Message('You cannot target a tile outside your field of view.', libtcod.yellow)})
+        return results
+
+    results.append({'consumed': False})
+    results.append({'power_used': True})
+
+    entity = entities[0]
+    entity.fighter.use_vim(cost)
+
+    if entity.fighter.ego > damage:
+        damage = entity.fighter.ego
+
+    for entity in entities:
+        if entity.distance(target_x, target_y) <= radius and entity.fighter:
+            results.append({'message': Message('The {0} gets hit by an arrow for {1} hit points.'.format(entity.name, damage), libtcod.orange)})
+            results.extend(entity.fighter.take_damage(damage))
+
+    return results
 
 def cast_confuse(*args, **kwargs):
     entities = kwargs.get('entities')

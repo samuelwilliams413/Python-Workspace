@@ -27,10 +27,11 @@ class Inventory:
 
         return results
 
-    def use(self, item_entity, **kwargs):
+    def use(self, item_entity, power=False, **kwargs):
         results = []
 
         item_component = item_entity.item
+        cost = item_component.cost
 
         if item_component.use_function is None:
             equippable_component = item_entity.equippable
@@ -44,11 +45,12 @@ class Inventory:
                 results.append({'targeting': item_entity})
             else:
                 kwargs = {**item_component.function_kwargs, **kwargs}
-                item_use_results = item_component.use_function(self.owner, **kwargs)
+                item_use_results = item_component.use_function(self.owner, power=power, cost=cost, **kwargs)
 
-                for item_use_result in item_use_results:
-                    if item_use_result.get('consumed'):
-                        self.remove_item(item_entity)
+                if not power:
+                    for item_use_result in item_use_results:
+                        if item_use_result.get('consumed'):
+                            self.remove_item(item_entity)
 
                 results.extend(item_use_results)
 

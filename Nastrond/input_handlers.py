@@ -58,6 +58,14 @@ def handle_player_turn_keys(key):
     elif key_char == 'c':
         return {'show_character_screen': True}
 
+    index = key.c - ord('0')
+    if key_char == '1':
+        return {'power': index}
+    elif key_char == '2':
+        return {'power': index}
+    elif key_char == '3':
+        return {'power': index}
+
     if key.vk == libtcod.KEY_ENTER and key.lalt:
         # Alt+Enter: toggle full screen
         return {'fullscreen': True}

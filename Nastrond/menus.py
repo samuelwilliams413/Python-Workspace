@@ -79,9 +79,9 @@ def level_up_menu(con, header, player, menu_width, screen_width, screen_height):
     options = ['Strength (+1 Knock back, from {0})'.format(player.fighter.strength),
                'Agility (+1 Piercing, from {0})'.format(player.fighter.agility),
                'Toughness (+1 HP/Level, from {0})'.format(player.fighter.toughness),
-               'Intelligence (+1 Vim/Level, from {0})'.format(player.fighter.intelligence),
-               'Resolve (+1 defense, from {0})'.format(player.fighter.resolve),
-               'Ego (+1 Vim Regen, from {0})'.format(player.fighter.ego)]
+               'Intelligence (+1 Ki/Level, from {0})'.format(player.fighter.intelligence),
+               'Resolve (+1 Ki Regen, from {0})'.format(player.fighter.resolve),
+               'Ego (+1 Ki Dmg, from {0})'.format(player.fighter.ego)]
 
     menu(con, header, options, menu_width, screen_width, screen_height)
 

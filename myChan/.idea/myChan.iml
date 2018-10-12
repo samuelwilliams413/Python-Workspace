@@ -10,6 +10,7 @@
     <orderEntry type="module" module-name="ComToHID" />
     <orderEntry type="module" module-name="Nastrond" />
     <orderEntry type="module" module-name="Ennead" />
+    <orderEntry type="module" module-name="Nastrond" />
   </component>
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="Unittests" />

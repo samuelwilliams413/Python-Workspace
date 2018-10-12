@@ -233,7 +233,7 @@ class GameMap:
                       constants['map_width'], constants['map_height'], player, entities)
 
         player.fighter.heal(player.fighter.max_hp // 2)
-        player.fighter.use_vim(player.fighter.vim // 2)
+        player.fighter.heal_vim(player.fighter.vim // 2)
 
         message_log.add_message(Message('You take a moment to rest, and recover your strength.', libtcod.light_violet))
 
