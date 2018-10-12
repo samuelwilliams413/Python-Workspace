@@ -9,6 +9,7 @@ from components.item import Item
 from components.stairs import Stairs
 from components.weapon_rack import *
 from components.beastiary import *
+from components.backpack import *
 
 from entity import Entity
 
@@ -201,20 +202,11 @@ class GameMap:
                 elif item_choice == 'shield':
                     item = item_shield(x, y)
                 elif item_choice == 'fireball_scroll':
-                    item_component = Item(use_function=cast_fireball, targeting=True, targeting_message=Message(
-                        'Left-click a target tile for the fireball, or right-click to cancel.', libtcod.light_cyan),
-                                          damage=25, radius=3)
-                    item = Entity(x, y, '#', libtcod.red, 'Fireball Scroll', render_order=RenderOrder.ITEM,
-                                  item=item_component)
+                    item = item_scroll_fireball(x,y)
                 elif item_choice == 'confusion_scroll':
-                    item_component = Item(use_function=cast_confuse, targeting=True, targeting_message=Message(
-                        'Left-click an enemy to confuse it, or right-click to cancel.', libtcod.light_cyan))
-                    item = Entity(x, y, '#', libtcod.light_pink, 'Confusion Scroll', render_order=RenderOrder.ITEM,
-                                  item=item_component)
+                    item = item_scroll_confusion(x,y)
                 else:
-                    item_component = Item(use_function=cast_lightning, damage=40, maximum_range=5)
-                    item = Entity(x, y, '#', libtcod.yellow, 'Lightning Scroll', render_order=RenderOrder.ITEM,
-                                  item=item_component)
+                    item = item_scroll_lightning(x,y)
 
                 entities.append(item)
 

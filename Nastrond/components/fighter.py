@@ -31,7 +31,7 @@ class Fighter:
         else:
             bonus = 0
 
-        return self.base_max_vim + self.intelligence + bonus
+        return self.base_max_vim + self.intelligence*self.owner.level.current_level + bonus
 
     @property
     def AP(self):
@@ -190,6 +190,7 @@ class Fighter:
         else:
             turn += 1
 
+        defense = (exp(defense) ** -0.1)
         return turn
 
 

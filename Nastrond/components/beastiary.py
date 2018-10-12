@@ -22,7 +22,7 @@ def beast_oni(x=0, y=0):
     fighter_component = Fighter(hp=30, defense=2, power=3, xp=150, strength=5, knockback=2)
     ai_component = BasicMonster()
 
-    monster = Entity(x, y, 'B', libtcod.violet,'Big \'Un', fluff='Big \'Un: A large high HP, high damage unit, knock back (2+5)', blocks=True, fighter=fighter_component,
+    monster = Entity(x, y, 'B', libtcod.violet,'Big\'Un', fluff='Big\'Un: A large high HP, high damage unit, knock back (2+5)', blocks=True, fighter=fighter_component,
                      render_order=RenderOrder.ACTOR, ai=ai_component)
     return monster
 
