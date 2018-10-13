@@ -92,7 +92,7 @@ def get_game_variables(constants):
     equipment_component = Equipment()
 
     magic_component = Magic()
-    power_item_component = Item(use_function=heal, amount=40, power=True, cost=5)
+    power_item_component = Item(use_function=heal, amount=20, power=True, cost=5)
     p = Entity(0, 0, '!', libtcod.violet, 'Healing Potion', render_order=RenderOrder.ITEM,
                item=power_item_component)
     magic_component.add_power(p)
@@ -101,6 +101,12 @@ def get_game_variables(constants):
         'Left-click a target tile for the bow, or right-click to cancel.', libtcod.light_cyan),
                           damage=0, radius=0)
     p = Entity(0, 0, '#', libtcod.red, 'Fireball Scroll', render_order=RenderOrder.ITEM,
+                  item=power_item_component)
+    magic_component.add_power(p)
+
+    power_item_component = Item(use_function=cast_teleport, targeting=True, power=True, cost=10, targeting_message=Message(
+        'Left-click a tile to teleport, or right-click to cancel.', libtcod.light_cyan))
+    p = Entity(0, 0, '#', libtcod.green, 'Teleport Scroll', render_order=RenderOrder.ITEM,
                   item=power_item_component)
     magic_component.add_power(p)
 

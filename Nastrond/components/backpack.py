@@ -38,3 +38,10 @@ def item_scroll_confusion(x=0, y=0):
     item = Entity(x, y, '#', libtcod.light_pink, 'Confusion Scroll', render_order=RenderOrder.ITEM,
                   item=item_component)
     return item
+
+def item_scroll_teleport(x=0, y=0):
+    item_component = Item(use_function=cast_teleport, targeting=True, targeting_message=Message(
+        'Left-click a tile to teleport, or right-click to cancel.', libtcod.light_cyan))
+    item = Entity(x, y, '#', libtcod.light_green, 'Teleportation Scroll', render_order=RenderOrder.ITEM,
+                  item=item_component)
+    return item

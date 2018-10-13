@@ -23,6 +23,7 @@ class Fighter:
         self.base_resolve = resolve
         self.base_ego = ego
         self.base_field_of_vision = field_of_vision
+        self.overload = 0
 
     @property
     def max_vim(self):
@@ -107,6 +108,12 @@ class Fighter:
 
     @property
     def max_hp(self):
+        if self.hp > (self.real_max_hp - self.overload):
+            self.hp = self.real_max_hp - self.overload
+        return self.real_max_hp - self.overload
+
+    @property
+    def real_max_hp(self):
         if self.owner and self.owner.equipment:
             bonus = self.owner.equipment.max_hp_bonus
         else:
@@ -130,7 +137,7 @@ class Fighter:
         else:
             bonus = 0
 
-        return self.base_defense + self.resolve + bonus
+        return self.base_defense + bonus
 
     @property
     def knockback(self):
@@ -167,30 +174,30 @@ class Fighter:
             self.hp = self.max_hp
 
     def use_vim(self, amount):
-        #if amount is not None:
-        self.vim -= amount
-
-        if self.vim <= 0:
-            self.vim = 0
-
-    def heal_vim(self, amount):
+        results = []
         self.vim += amount
 
         if self.vim > self.max_vim:
+            overload = self.vim - self.max_vim
+            self.overload += overload
             self.vim = self.max_vim
+            results.append({'message': Message('{0} gained {1} corruption.'.format(
+                    self.owner.name.capitalize(), overload), libtcod.red)})
+        return results
+
+    def heal_vim(self, amount):
+        self.vim -= amount
+
+        if self.vim < 0:
+            self.vim = 0
 
     def regen_vim(self, turn):
-        if (turn + self.resolve) > 10:
-            self.vim += 1
-
-            if self.vim > self.max_vim:
-                self.vim = self.max_vim
-
-            turn = 0
-        else:
-            turn += 1
-
-        defense = (exp(defense) ** -0.1)
+        turn = (turn + 1) % 2
+        if turn % 2 == 0:
+            regen = (exp(self.resolve) ** -0.052)
+            self.vim = int(self.vim * regen - 1);
+            if self.vim < 0:
+                self.vim = 0
         return turn
 
 

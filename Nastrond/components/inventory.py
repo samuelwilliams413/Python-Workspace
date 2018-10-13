@@ -27,11 +27,14 @@ class Inventory:
 
         return results
 
-    def use(self, item_entity, power=False, **kwargs):
+    def use(self, item_entity, power=False, game_map=None, **kwargs):
         results = []
 
         item_component = item_entity.item
         cost = item_component.cost
+
+        if game_map is None:
+            results.append({'message': Message('The gamemap is NONE. [use] ', libtcod.orange)})
 
         if item_component.use_function is None:
             equippable_component = item_entity.equippable
@@ -45,7 +48,7 @@ class Inventory:
                 results.append({'targeting': item_entity})
             else:
                 kwargs = {**item_component.function_kwargs, **kwargs}
-                item_use_results = item_component.use_function(self.owner, power=power, cost=cost, **kwargs)
+                item_use_results = item_component.use_function(self.owner, power=power, cost=cost, game_map=game_map, **kwargs)
 
                 if not power:
                     for item_use_result in item_use_results:

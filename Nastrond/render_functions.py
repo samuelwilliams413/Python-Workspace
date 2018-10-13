@@ -38,6 +38,28 @@ def render_bar(panel, x, y, total_width, name, value, maximum, bar_color, back_c
     libtcod.console_print_ex(panel, int(x + total_width / 2), y, libtcod.BKGND_NONE, libtcod.CENTER,
                              '{0}: {1}/{2}'.format(name, value, maximum))
 
+def render_bar3(panel, x, y, total_width, name, value, maximum, real_maximum, bar_color, back_color, lost_color):
+    max_bar_width = int(float(maximum) / real_maximum * total_width)
+    if maximum > 0:
+        bar_width = int(float(value) / maximum * max_bar_width)
+    else:
+        bar_width = 0
+
+    libtcod.console_set_default_background(panel, lost_color)
+    libtcod.console_rect(panel, x, y, total_width, 1, False, libtcod.BKGND_SCREEN)
+
+    libtcod.console_set_default_background(panel, back_color)
+    if max_bar_width > 0:
+        libtcod.console_rect(panel, x, y, max_bar_width, 1, False, libtcod.BKGND_SCREEN)
+
+    libtcod.console_set_default_background(panel, bar_color)
+    if bar_width > 0:
+        libtcod.console_rect(panel, x, y, bar_width, 1, False, libtcod.BKGND_SCREEN)
+
+    libtcod.console_set_default_foreground(panel, libtcod.white)
+    libtcod.console_print_ex(panel, int(x + total_width / 2), y, libtcod.BKGND_NONE, libtcod.CENTER,
+                             '{0}: {1}/{2}'.format(name, value, maximum))
+
 
 def render_all(con, panel, entities, player, game_map, fov_map, fov_recompute, message_log, screen_width, screen_height,
                bar_width, panel_height, panel_y, mouse, colors, game_state):
@@ -79,8 +101,9 @@ def render_all(con, panel, entities, player, game_map, fov_map, fov_recompute, m
         libtcod.console_print_ex(panel, message_log.x, y, libtcod.BKGND_NONE, libtcod.LEFT, message.text)
         y += 1
 
-    render_bar(panel, 1, 1, bar_width, 'HP', player.fighter.hp, player.fighter.max_hp,
-               libtcod.light_red, libtcod.darker_red)
+    render_bar3(panel, 1, 1, bar_width, 'HP', player.fighter.hp, player.fighter.max_hp, player.fighter.real_max_hp, libtcod.light_red,
+               libtcod.darker_red, libtcod.darkest_crimson)
+
     render_bar(panel, 1, 3, bar_width, 'KI', player.fighter.vim, player.fighter.max_vim,
                libtcod.light_blue, libtcod.darker_blue)
 

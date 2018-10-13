@@ -116,12 +116,9 @@ def play_game(player, entities, game_map, message_log, game_state, con, panel, c
         if power:
 
             item = player.magic.powers[power - 1]
-            power_cost = item.item.cost
-            if player.fighter.vim >= power_cost:
-                previous_game_state = game_state
-                player_turn_results.extend(player.inventory.use(item, power=True, entities=entities, fov_map=fov_map))
-            else:
-                message_log.add_message(Message('Not enough Ki to cast.', libtcod.yellow))
+            previous_game_state = game_state
+            player_turn_results.extend(player.inventory.use(item, power=True, entities=entities, fov_map=fov_map, game_map=game_map))
+
 
 
         if inventory_index is not None and previous_game_state != GameStates.PLAYER_DEAD and inventory_index < len(
@@ -172,7 +169,7 @@ def play_game(player, entities, game_map, message_log, game_state, con, panel, c
                 target_x, target_y = left_click
 
                 item_use_results = player.inventory.use(targeting_item, entities=entities, fov_map=fov_map,
-                                                        target_x=target_x, target_y=target_y)
+                                                        target_x=target_x, target_y=target_y, game_map=game_map)
                 player_turn_results.extend(item_use_results)
             elif right_click:
                 player_turn_results.append({'targeting_cancelled': True})
