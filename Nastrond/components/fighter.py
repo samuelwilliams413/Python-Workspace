@@ -192,12 +192,11 @@ class Fighter:
             self.vim = 0
 
     def regen_vim(self, turn):
-        turn = (turn + 1) % 2
-        if turn % 2 == 0:
-            regen = (exp(self.resolve) ** -0.052)
-            self.vim = int(self.vim * regen - 1);
-            if self.vim < 0:
-                self.vim = 0
+        turn = (turn + 1) % 5
+        regen = (exp(self.resolve) ** -0.0005)
+        self.vim = int(self.vim * regen);
+        if self.vim < 0:
+            self.vim = 0
         return turn
 
 

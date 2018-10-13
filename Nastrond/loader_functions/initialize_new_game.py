@@ -85,26 +85,26 @@ def get_constants():
 
 def get_game_variables(constants):
     fighter_component = Fighter(hp=100, defense=6, power=2, knockback=0, strength=1, agility=1, toughness=1,
-                                intelligence=1, resolve=1, ego=1, vim=10, action_points=1)
+                                intelligence=1, resolve=1, ego=1, vim=100, action_points=1)
 
     inventory_component = Inventory(20)
     level_component = Level()
     equipment_component = Equipment()
 
     magic_component = Magic()
-    power_item_component = Item(use_function=heal, amount=20, power=True, cost=5)
+    power_item_component = Item(use_function=heal, amount=20, power=True, cost=50)
     p = Entity(0, 0, '!', libtcod.violet, 'Healing Potion', render_order=RenderOrder.ITEM,
                item=power_item_component)
     magic_component.add_power(p)
 
-    power_item_component = Item(use_function=cast_bow, targeting=True, power=True, cost=2, targeting_message=Message(
+    power_item_component = Item(use_function=cast_bow, targeting=True, power=True, cost=20, targeting_message=Message(
         'Left-click a target tile for the bow, or right-click to cancel.', libtcod.light_cyan),
                           damage=0, radius=0)
     p = Entity(0, 0, '#', libtcod.red, 'Fireball Scroll', render_order=RenderOrder.ITEM,
                   item=power_item_component)
     magic_component.add_power(p)
 
-    power_item_component = Item(use_function=cast_teleport, targeting=True, power=True, cost=10, targeting_message=Message(
+    power_item_component = Item(use_function=cast_teleport, targeting=True, power=True, cost=100, targeting_message=Message(
         'Left-click a tile to teleport, or right-click to cancel.', libtcod.light_cyan))
     p = Entity(0, 0, '#', libtcod.green, 'Teleport Scroll', render_order=RenderOrder.ITEM,
                   item=power_item_component)

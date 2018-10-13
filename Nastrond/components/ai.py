@@ -13,8 +13,8 @@ class BasicMonster:
 
         monster = self.owner
 
-
-        monster.hasSeen = monster.fighter.canSee(target)
+        if not monster.hasSeen:
+            monster.hasSeen = monster.fighter.canSee(target)
 
         if libtcod.map_is_in_fov(fov_map, monster.x, monster.y) or monster.hasSeen:
 

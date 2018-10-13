@@ -10,11 +10,13 @@ def handle_keys(key, game_state):
         return handle_player_dead_keys(key)
     elif game_state == GameStates.TARGETING:
         return handle_targeting_keys(key)
-    elif game_state in (GameStates.SHOW_INVENTORY, GameStates.DROP_INVENTORY):
+    elif game_state in (GameStates.SHOW_INVENTORY, GameStates.DROP_INVENTORY, GameStates.FLUFF_INVENTORY):
         return handle_inventory_keys(key)
     elif game_state == GameStates.LEVEL_UP:
         return handle_level_up_menu(key)
     elif game_state == GameStates.CHARACTER_SCREEN:
+        return handle_character_screen(key)
+    elif game_state == GameStates.HELP_SCREEN:
         return handle_character_screen(key)
 
     return {}
@@ -54,6 +56,9 @@ def handle_player_turn_keys(key):
 
     elif  key_char == 's':
         return {'take_stairs': True}
+
+    elif key_char == 'q':
+        return {'show_help_screen': True}
 
     elif key_char == 'c':
         return {'show_character_screen': True}
